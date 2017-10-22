@@ -5,22 +5,40 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.navigation = NavigationService.getNavigation();
 
     $scope.nominaton = [{
-            img: 'http://flexslider.woothemes.com/images/kitchen_adventurer_cheesecake_brownie.jpg',
-            value: '',
-        },
-        {
-            img: 'http://flexslider.woothemes.com/images/kitchen_adventurer_lemon.jpg',
-            value: '',
-        },
-        {
-            img: 'http://flexslider.woothemes.com/images/kitchen_adventurer_donut.jpg',
-            value: '',
-        },
-        {
-            img: 'http://flexslider.woothemes.com/images/kitchen_adventurer_caramel.jpg',
-            value: '',
-        },
+        img: '../img/ge.png',
+        value: '',
+    },
+    {
+        img: '../img/burger.png',
+        value: '',
+    },
+    {
+        img: '../img/fila.png',
+        value: '',
+    },
+    {
+        img: '../img/ge.png',
+        value: '',
+    },
     ];
+
+    $scope.leaderBoard = [{
+        img: '../img/ge.png',
+        value: '',
+    },
+    {
+        img: '../img/burger.png',
+        value: '',
+    },
+    {
+        img: '../img/fila.png',
+        value: '',
+    },
+    {
+        img: '../img/ge.png',
+        value: '',
+    },
+];
     var abc = _.times(100, function (n) {
         return n;
     });
@@ -46,7 +64,23 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.$on('$viewContentLoaded', function (event) {
 
         $timeout(function () {
-            mySwiper = new Swiper('.swiper-container', {
+            mySwiper = new Swiper('.leader-board .swiper-container', {
+                pagination: '.swiper-pagination',
+                slidesPerView: 4,
+                paginationClickable: true,
+                loop: true,
+                autoplay: 2500,
+                grabCursor: true
+            });
+            mySwiper = new Swiper('.category .swiper-container', {
+                pagination: '.swiper-pagination',
+                slidesPerView: 4,
+                paginationClickable: true,
+                loop: true,
+                autoplay: 2500,
+                grabCursor: true
+            });
+            mySwiper = new Swiper('.nomination .swiper-container', {
                 pagination: '.swiper-pagination',
                 slidesPerView: 4,
                 paginationClickable: true,

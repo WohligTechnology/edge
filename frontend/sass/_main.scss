@@ -1,19 +1,20 @@
 /* Bootstrap Variables Goes Here */
 
-$brand-primary: #0d9dff !default;
-$brand-success: #84ce3c !default;
+$brand-primary: #2372ba !default;
+$brand-success: #71bf44 !default;
 $brand-warning: #ffec39 !default;
 $brand-danger: #fc483f !default;
 $brand-info: #000072 !default;
+$brand-grey:#ececec;
 @import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
 /* Bootstrap Variables Goes Here */
 
 @import "other/font-fix";
 body {
-    padding-top: 70px;
+    // padding-top: 70px;
+    color: #000000;
 }
-
 img.loading {
     text-align: center;
     opacity: 1;
@@ -118,4 +119,128 @@ header {
 
 .nav-up {
     transform: translateY(-100%);
+}
+
+//color
+.color-blue {
+    color: $brand-primary;
+}
+
+.color-green {
+    color: $brand-success;
+}
+
+.color-white {
+    color: #fff;
+}
+
+//background
+.bg-green {
+    background: $brand-success;
+    color: #fff;
+}
+
+.bg-blue {
+    background: $brand-primary;
+    color: #fff;
+}
+
+.bg-grey {
+    background: $brand-grey;
+}
+
+//home page
+.bg-main {
+    min-height: 100vh;
+    background: url('../img/landing-page.png') no-repeat center center;
+    background-size: cover;
+}
+
+.main-content {
+    width: 330px;
+    padding: calc(100vh - 290px) 20px;
+    margin: 0 auto;
+    text-align: center;
+    h3 {
+        font-size: 36px;
+        color: #fff;
+        margin: 0;
+        letter-spacing: 2px;
+        line-height: 125%;
+    }
+}
+
+.min-hght {
+    min-height: 100vh;
+}
+
+p {
+    letter-spacing: 1.2px;
+}
+
+//about
+.large-character {
+    font-size: 20em;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.about-content {
+    padding: 20vh 20px;
+    line-height: 130%;
+}
+
+.text-title {
+    font-size: 4em;
+    letter-spacing: 3px;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+}
+
+//leader board
+.btn.btn-default {
+    padding: 8px 40px;
+    letter-spacing: 1.2px;
+}
+
+.lower-title {
+    margin: 0 -20px;
+}
+
+.upper-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+}
+
+.sub-title {
+    &.btn.btn-default {
+        cursor: auto;
+        &:hover {
+            background: #fff;
+        }
+    }
+}
+.leader-board{
+    .swiper-slide{
+        background: transparent;
+        img{
+            width: 130px;
+        }
+    }
+}
+//category
+.category-content,
+.nomination-content,
+.partner-content {
+        padding-top: 50px;
+}
+
+//swiper
+.swiper-slide{
+    background: transparent;
 }

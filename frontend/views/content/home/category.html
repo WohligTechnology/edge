@@ -1,35 +1,46 @@
 <!-- <h1>four</h1> -->
 <!-- section one category page -->
-<section>
-        <div class="bg-light-grey">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-8">
-                        <div class="category-content">
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                                text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                                make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                                typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                                of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                                software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
-                        </div>
+<section class="category">
+    <div class="bg-grey min-hght">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-8">
+                    <div class="category-content">
+                        <p class="text-justify">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+                            make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+                            of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+                            software like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
                     </div>
-                    <div class="col-xs-4">
-                        <div class="title rel text-uppercase text-center">
-                            <div class="large-character">
-                                C
-                            </div>
-                            <div class="text-title">
-                                Category
-                            </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="title rel text-uppercase text-center">
+                        <div class="large-character color-white">
+                            C
+                        </div>
+                        <div class="text-title">
+                            Category
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="swiper-custom">
                 <div class="swiper-custom">
-
+                    <div class="swiper-container ">
+                        <div class="swiper-wrapper ">
+                            <li ng-repeat="myslide in nominaton track by $index" class="swiper-slide text-center">
+                                <figure>
+                                    <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
+                                </figure>
+                                <input type="radio">
+                            </li>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
