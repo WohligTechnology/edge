@@ -18,20 +18,39 @@
                         Category
                     </div>
                 </div>
-                <div class="col-xs-8">
-                    <div class="sub-title box-white btn btn-default text-uppercase upper-title">
-                        Best Innovation
-                    </div>
-                    <div class="swiper-custom">
-                        <div class="swiper-container ">
-                            <div class="swiper-wrapper ">
-                                <li ng-repeat="myslide in leaderBoard track by $index" class="swiper-slide text-center">
-                                    <figure>
-                                        <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
-                                    </figure>
-                                </li>
+                <div class="col-xs-6">
+                    <div class="min-hght rel mb15">
+                        <div class="get-bottom">
+                            <div class="swiper-custom">
+                                <div class="swiper-container ">
+                                    <div class="swiper-wrapper ">
+                                        <li ng-repeat="myslide in leaderBoard track by $index" class="swiper-slide text-center">
+                                            <div class="">
+                                                <div class="bar mb15">
+                                                    <div class="bar-value get-bottom" style="height: {{myslide.value}}%;">
+                                                    </div>
+                                                </div>
+                                                <figure>
+                                                    <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
+                                                </figure>
+                                            </div>
+                                        </li>
+                                    </div>
+                                    <!-- Add Arrows -->
+                                    <div class="swiper-button-next">
+                                        <i class="fa fa-caret-right color-green" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="swiper-button-prev">
+                                        <i class="fa fa-caret-left color-green" aria-hidden="true"></i>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="sub-title box-white btn btn-default text-uppercase upper-title">
+                        Best Innovation
                     </div>
                 </div>
             </div>

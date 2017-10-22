@@ -10090,6 +10090,9 @@ header {
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%); }
 
+.mb15 {
+  margin-bottom: 15px; }
+
 .color-blue {
   color: #2372ba; }
 
@@ -10098,6 +10101,9 @@ header {
 
 .color-white {
   color: #fff; }
+
+.color-black {
+  color: #000; }
 
 .bg-green {
   background: #71bf44;
@@ -10110,14 +10116,34 @@ header {
 .bg-grey {
   background: #ececec; }
 
+.rel {
+  position: relative; }
+
+.get-bottom {
+  width: 100%;
+  position: absolute;
+  bottom: 0; }
+
+.get-center {
+  width: 100%;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+.min-hght {
+  min-height: 100vh; }
+
+p {
+  letter-spacing: 1.2px; }
+
 .bg-main {
-  min-height: 100vh;
   background: url("../img/landing-page.png") no-repeat center center;
   background-size: cover; }
 
 .main-content {
   width: 330px;
-  padding: calc(100vh - 290px) 20px;
   margin: 0 auto;
   text-align: center; }
   .main-content h3 {
@@ -10126,12 +10152,6 @@ header {
     margin: 0;
     letter-spacing: 2px;
     line-height: 125%; }
-
-.min-hght {
-  min-height: 100vh; }
-
-p {
-  letter-spacing: 1.2px; }
 
 .large-character {
   font-size: 20em;
@@ -10175,13 +10195,40 @@ p {
   .leader-board .swiper-slide img {
     width: 130px; }
 
+.leader-board .bar {
+  height: calc(100vh - 180px);
+  width: 30px;
+  display: block;
+  margin: 0 auto 15px;
+  position: relative; }
+  .leader-board .bar .bar-value {
+    background: -webkit-gradient(linear, left top, left bottom, from(#2372ba), to(#fff));
+    background: linear-gradient(#2372ba, #fff); }
+
 .category-content,
 .nomination-content,
 .partner-content {
   padding-top: 50px; }
 
+.category .swiper-slide {
+  background: transparent; }
+  .category .swiper-slide img {
+    cursor: pointer;
+    -webkit-transition: all ease 300ms;
+    transition: all ease 300ms; }
+    .category .swiper-slide img:hover {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9); }
+
 .swiper-slide {
   background: transparent; }
+
+.swiper-button-prev,
+.swiper-button-next {
+  background: transparent !important; }
+  .swiper-button-prev i,
+  .swiper-button-next i {
+    font-size: 36px; }
 
 #fancybox-loading,
 .fancybox-close,
@@ -10222,6 +10269,10 @@ p {
 
 .fancybox-nav.fancybox-prev span {
   background-image: url(../img/prev.png); }
+
+@media (max-width: 991px) {
+  .text-title {
+    font-size: 3em; } }
 
 @media (max-width: 767px) {
   .bg-main {

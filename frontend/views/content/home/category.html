@@ -28,16 +28,20 @@
                 </div>
             </div>
             <div class="swiper-custom">
-                <div class="swiper-custom">
-                    <div class="swiper-container ">
-                        <div class="swiper-wrapper ">
-                            <li ng-repeat="myslide in nominaton track by $index" class="swiper-slide text-center">
-                                <figure>
-                                    <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
-                                </figure>
-                                <input type="radio">
-                            </li>
-                        </div>
+                <div class="swiper-container ">
+                    <div class="swiper-wrapper ">
+                        <li ng-repeat="myslide in nominaton track by $index" class="swiper-slide text-center">
+                            <figure>
+                                <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
+                            </figure>
+                        </li>
+                    </div>
+                    <!-- Add Arrows -->
+                   <div class="swiper-button-next">
+                        <i class="fa fa-caret-right color-black" aria-hidden="true"></i>
+                    </div>
+                    <div class="swiper-button-prev">
+                        <i class="fa fa-caret-left color-black"" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>

@@ -5,40 +5,40 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.navigation = NavigationService.getNavigation();
 
     $scope.nominaton = [{
-        img: '../img/ge.png',
-        value: '',
-    },
-    {
-        img: '../img/burger.png',
-        value: '',
-    },
-    {
-        img: '../img/fila.png',
-        value: '',
-    },
-    {
-        img: '../img/ge.png',
-        value: '',
-    },
+            img: '../img/ge.png',
+            value: '',
+        },
+        {
+            img: '../img/burger.png',
+            value: '',
+        },
+        {
+            img: '../img/fila.png',
+            value: '',
+        },
+        {
+            img: '../img/ge.png',
+            value: '',
+        },
     ];
 
     $scope.leaderBoard = [{
-        img: '../img/ge.png',
-        value: '',
-    },
-    {
-        img: '../img/burger.png',
-        value: '',
-    },
-    {
-        img: '../img/fila.png',
-        value: '',
-    },
-    {
-        img: '../img/ge.png',
-        value: '',
-    },
-];
+            img: '../img/ge.png',
+            value: '50',
+        },
+        {
+            img: '../img/burger.png',
+            value: '60',
+        },
+        {
+            img: '../img/fila.png',
+            value: '90',
+        },
+        {
+            img: '../img/ge.png',
+            value: '30',
+        },
+    ];
     var abc = _.times(100, function (n) {
         return n;
     });
@@ -70,7 +70,11 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 paginationClickable: true,
                 loop: true,
                 autoplay: 2500,
-                grabCursor: true
+                grabCursor: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                }
             });
             mySwiper = new Swiper('.category .swiper-container', {
                 pagination: '.swiper-pagination',
@@ -78,7 +82,11 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 paginationClickable: true,
                 loop: true,
                 autoplay: 2500,
-                grabCursor: true
+                grabCursor: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                }
             });
             mySwiper = new Swiper('.nomination .swiper-container', {
                 pagination: '.swiper-pagination',
@@ -86,13 +94,17 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 paginationClickable: true,
                 loop: true,
                 autoplay: 2500,
-                grabCursor: true
+                grabCursor: true,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                }
             });
-            $(".swiper-container").hover(function () {
-                mySwiper.stopAutoplay();
-            }, function () {
-                mySwiper.startAutoplay();
-            });
+            // $(".swiper-container").hover(function () {
+            //     mySwiper.stopAutoplay();
+            // }, function () {
+            //     mySwiper.startAutoplay();
+            // });
         }, 300)
     });
 

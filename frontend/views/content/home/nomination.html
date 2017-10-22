@@ -10,7 +10,7 @@
                             N
                         </div>
                         <div class="text-title">
-                            nomination
+                            nominations
                         </div>
                     </div>
                 </div>
@@ -32,15 +32,26 @@
                 <div class="swiper-container ">
                     <div class="swiper-wrapper ">
                         <li ng-repeat="myslide in nominaton track by $index" class="swiper-slide text-center">
-                            <figure>
-                                <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
-                            </figure>
-                            <input type="radio">
+                            <div class="">
+                                <label for="optradio" name="value">
+                                    <figure class="mb20">
+                                        <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
+                                    </figure>
+                                    <input type="radio" name="optradio">
+                                </label>
+                            </div>
                         </li>
+                    </div>
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next">
+                        <i class="fa fa-caret-right color-blue" aria-hidden="true"></i>
+                    </div>
+                    <div class="swiper-button-prev">
+                        <i class="fa fa-caret-left color-blue" aria-hidden="true"></i>
                     </div>
                 </div>
             </div>
-            <div class="button-all text-center">
+            <div class="button-all text-center mb15">
                 <button class="btn btn-default text-uppercase">
                     Submit
                 </button>
