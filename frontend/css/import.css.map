@@ -131,7 +131,7 @@
 		"../../bower_components/font-awesome/scss/_icons.scss",
 		"../../bower_components/font-awesome/scss/_screen-reader.scss",
 		"../../bower_components/angular-ui-swiper/dist/angular-ui-swiper.css",
-		"../../bower_components/fancyBox/dist/jquery.fancybox.css",
+		"../../bower_components/fancybox/dist/jquery.fancybox.css",
 		"../../bower_components/smart-app-banner/smart-app-banner.css",
 		"../../bower_components/angular-promise-buttons/src/styles/style.scss",
 		"../../bower_components/angular-promise-buttons/src/styles/_default-button.scss",

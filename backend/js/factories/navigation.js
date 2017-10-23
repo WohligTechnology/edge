@@ -11,7 +11,18 @@ myApp.factory('NavigationService', function ($http) {
         classis: "active",
         sref: "#!/page/viewUser//",
         icon: "phone"
-    }];
+    },{
+        name: "Categories",
+        classis: "active",
+        sref: "#!/page/viewCategory//",
+        icon: "phone"
+    },{
+        name: "Companies",
+        classis: "active",
+        sref: "#!/page/viewCompany//",
+        icon: "phone"
+    }
+];
 
     return {
         getnav: function () {

@@ -12,6 +12,8 @@ myApp.filter('uploadpath', function () {
         }
         if (input) {
             if (input.indexOf('https://') == -1) {
+                //return input;
+                
                 return imgpath + "?file=" + input + other;
             } else {
                 return input;

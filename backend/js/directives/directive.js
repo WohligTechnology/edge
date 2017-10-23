@@ -481,6 +481,7 @@ myApp.directive('detailField', function ($http, $filter, JsonService) {
             value: "=value",
             detailForm: "=form",
             formData: "=data",
+            name: "=name"
         },
         controller: 'DetailFieldCtrl',
         link: function ($scope, element, attrs) {}
