@@ -3,7 +3,40 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.template = TemplateService.getHTML("content/home.html");
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
+    $scope.companyView = true;
+    NavigationService.callApiWithData('Category/search',{},function(data){
+        var category = [];
+        var logo = '../img/ge.png';
+        
+        // for (var i in data.data.data.results) {
+        //     category.push({img: logo, value: data.data.data.results[i]._id});
 
+        //   }
+          $scope.category = data.data.data.results;
+          console.log(category);
+          
+});
+       
+    $scope.getCompany = function(categoryId){
+          console.log(categoryId);
+          NavigationService.callApiWithData('Category/getOne',{_id:categoryId},function(data){
+              console.log(data.data.data.company);
+              $scope.companyView = false;
+              $scope.categoryId=categoryId;
+              $scope.company = data.data.data.company;
+              
+            // var category = [];
+            // var logo = '../img/ge.png';
+            
+            // for (var i in data.data.data.results) {
+            //     category.push({img: logo, value: data.data.data.results[i]._id});
+    
+            //   }
+            //   $scope.category = category;
+            //   console.log(category);
+              
+    });      
+    } 
     $scope.nominaton = [{
             img: '../img/ge.png',
             value: '',

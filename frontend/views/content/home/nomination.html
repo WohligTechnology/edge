@@ -1,6 +1,6 @@
 <!-- <h1>four</h1> -->
 <!-- section one nomination page -->
-<section>
+<section ng-hide="companyView">
     <div class="bg-green min-hght nomination">
         <div class="container">
             <div class="row">
@@ -31,13 +31,14 @@
             <div class="swiper-custom">
                 <div class="swiper-container ">
                     <div class="swiper-wrapper ">
-                        <li ng-repeat="myslide in nominaton track by $index" class="swiper-slide text-center">
+                        <li ng-repeat="myslide in company track by $index" class="swiper-slide text-center" >
                             <div class="">
                                 <label for="optradio" name="value">
                                     <figure class="mb20">
-                                        <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
+                                        <img ng-src="../img/ge.png" class="img-responsive iconBlue" alt="Edge" >
                                     </figure>
-                                    <input type="radio" name="optradio">
+                                    {{$index+1}}
+                                    <input type="radio" name="optradio" value="{{myslide.companyObj._id}}" ng-change="">
                                 </label>
                             </div>
                         </li>

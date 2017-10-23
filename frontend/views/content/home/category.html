@@ -1,6 +1,6 @@
 <!-- <h1>four</h1> -->
 <!-- section one category page -->
-<section class="category">
+<section class="category" >
     <div class="bg-grey min-hght">
         <div class="container">
             <div class="row">
@@ -30,9 +30,9 @@
             <div class="swiper-custom">
                 <div class="swiper-container ">
                     <div class="swiper-wrapper ">
-                        <li ng-repeat="myslide in nominaton track by $index" class="swiper-slide text-center">
-                            <figure>
-                                <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
+                        <li ng-repeat="myslide in category track by $index" class="swiper-slide text-center">
+                          {{$index + 1}}  <figure>
+                                <img ng-src="../img/ge.png" class="img-responsive iconBlue" alt="Edge" ng-click="getCompany(myslide._id)">
                             </figure>
                         </li>
                     </div>

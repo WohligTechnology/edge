@@ -106,6 +106,7 @@ var models = {
     uploadFile: function (filename, callback) {
         var id = mongoose.Types.ObjectId();
         var extension = filename.split(".").pop();
+        console.log(filename);
         extension = extension.toLowerCase();
         if (extension == "jpeg") {
             extension = "jpg";

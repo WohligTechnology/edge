@@ -27,13 +27,12 @@ global["database"] = "database";
 
 mongoose.Promise = global.Promise;
 
-global.mongourl = "<Enter MongoDb URl>";
+global.mongourl = "mongodb://localhost:27017/"+ database;
 mongoose.connect(mongourl, {
     useMongoClient: true
 }, function (err, db) {
     global.gfs = Grid(db, mongoose.mongo);
 });
-
 // Ensure a "sails" can be located:
 (function () {
     var sails;

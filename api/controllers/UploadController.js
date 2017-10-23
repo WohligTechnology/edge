@@ -22,6 +22,7 @@ module.exports = {
         });
     },
     readFile: function (req, res) {
+        console.log(req.query.file);
         if (req.query.file) {
             var width;
             var height;
