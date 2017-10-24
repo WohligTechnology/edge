@@ -8,6 +8,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         var category = [];
         var logo = '../img/ge.png';
         
+        
         // for (var i in data.data.data.results) {
         //     category.push({img: logo, value: data.data.data.results[i]._id});
 
@@ -21,11 +22,14 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
           console.log(categoryId);
           $scope.company = [];
           NavigationService.callApiWithData('Category/getOne',{_id:categoryId},function(data){
+              console.log(data.data.data.description);
+              $scope.catDesc = data.data.data.description;
               console.log(data.data.data.company);
               $scope.companyView = false;
               $scope.categoryId=categoryId;
               $scope.company = data.data.data.company;
-              
+              console.log(">>>>>>");
+              console.log($scope.company);
             // var category = [];
             // var logo = '../img/ge.png';
             
@@ -38,6 +42,17 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
               
     });      
     } 
+    $scope.changeCompany = function(company){
+        console.log(); 
+        $scope.compDesc = company.description;
+        $scope.companyId = company._id;
+    }
+    $scope.submitVote = function(){
+        NavigationService.callApiWithData('VoteLog/AddVoteLog',{category:$scope.categoryId, company:$scope.companyId},function(data){
+            console.log(data);
+        });
+    }
+
     $scope.nominaton = [{
             img: '../img/ge.png',
             value: '',

@@ -45,8 +45,10 @@ var model = {
                       });
                       console.log(categoryData);
                  //   data.company.voteCount = ++data.company.voteCount;
-                 categoryData.save(function () {});
-                 callback(null, "Vote Done Successfully");
+                 categoryData.save(function (err, data) {
+                    callback(err, data);
+                 });
+                 
                 });
               
             }

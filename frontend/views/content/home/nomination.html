@@ -17,18 +17,13 @@
                 <div class="col-xs-7">
                     <div class="nomination-content">
                         <p class="text-justify">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
-                            text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                            make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                            typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                            of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of Lorem Ipsum.
+                        {{compDesc}}
                         </p>
                     </div>
                 </div>
             </div>
             <!-- {{nominaton}} -->
-            <div class="swiper-custom">
+            <!-- <div class="swiper-custom">
                 <div class="swiper-container ">
                     <div class="swiper-wrapper ">
                         <li ng-repeat="myslide in company track by $index" class="swiper-slide text-center" >
@@ -44,16 +39,28 @@
                         </li>
                     </div>
                     <!-- Add Arrows -->
-                    <div class="swiper-button-next">
+                    <!-- <div class="swiper-button-next">
                         <i class="fa fa-caret-right color-blue" aria-hidden="true"></i>
                     </div>
                     <div class="swiper-button-prev">
                         <i class="fa fa-caret-left color-blue" aria-hidden="true"></i>
                     </div>
                 </div>
-            </div>
+            </div> --> 
+            <div class="row">
+                    <div class="col-md-2" ng-repeat="myslide in company track by $index">
+                        <div class="category-title">
+                            {{myslide.companyObj.name}}
+                        </div>
+                        
+                        <input type="radio" name="optradio"  ng-click="changeCompany(myslide.companyObj)">
+
+                        <!-- {{$index + 1}}  <figure>
+                            <img ng-src="../img/ge.png" class="img-responsive iconBlue" alt="Edge" ng-click="getCompany(myslide._id)">
+                        </figure> -->
+                    </div>
             <div class="button-all text-center mb15">
-                <button class="btn btn-default text-uppercase">
+                <button class="btn btn-default text-uppercase" ng-click="submitVote();">
                     Submit
                 </button>
             </div>

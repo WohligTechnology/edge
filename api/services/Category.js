@@ -30,7 +30,7 @@ var schema = new Schema({
 schema.plugin(deepPopulate, {
     populate: {
         'company.companyObj': {
-            select: 'name _id'
+            select: ''
         }
     }
 });
