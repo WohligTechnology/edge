@@ -102,5 +102,45 @@ myApp.directive('img', function ($compile, $parse) {
         };
     })
 
+    .directive('scrolltop', function ($compile, $parse, $document, $window) {
+        return {
+            restrict: 'EA',
+            replace: false,
+            link: function ($scope, element, attrs) {
 
-;
+                $document.on('scroll', function () {
+                    $scope.scrollTopPosition = $window.scrollY;
+                    $scope.$apply();
+                });
+                var $element = $(element);
+                // var windowHeight = $(window).height();
+                $scope.scrollTop = function () {
+                    $('html,body').animate({
+                        scrollTop: $(".vote-now").offset().top
+                    }, 'slow');
+                };
+            }
+        };
+    })
+
+
+    .directive('scrollnomination', function ($compile, $parse, $document, $window) {
+        return {
+            restrict: 'EA',
+            replace: false,
+            link: function ($scope, element, attrs) {
+
+                $document.on('scroll', function () {
+                    $scope.scrollTopPosition = $window.scrollY;
+                    $scope.$apply();
+                });
+                var $element = $(element);
+                // var windowHeight = $(window).height();
+                $scope.scrollNomination = function () {
+                    $('html,body').animate({
+                        scrollTop: $(".vote-nomination").offset().top
+                    }, 'slow');
+                };
+            }
+        };
+    });

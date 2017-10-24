@@ -4,51 +4,69 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
     $scope.companyView = true;
-    NavigationService.callApiWithData('Category/search',{},function(data){
+    NavigationService.callApiWithData('Category/search', {}, function (data) {
         var category = [];
         var logo = '../img/ge.png';
-        
-        
+
+
         // for (var i in data.data.data.results) {
         //     category.push({img: logo, value: data.data.data.results[i]._id});
 
         //   }
-          $scope.category = data.data.data.results;
-          console.log(category);
-          
-});
-       
-    $scope.getCompany = function(categoryId){
-          console.log(categoryId);
-          $scope.company = [];
-          NavigationService.callApiWithData('Category/getOne',{_id:categoryId},function(data){
-              console.log(data.data.data.description);
-              $scope.catDesc = data.data.data.description;
-              console.log(data.data.data.company);
-              $scope.companyView = false;
-              $scope.categoryId=categoryId;
-              $scope.company = data.data.data.company;
-              console.log(">>>>>>");
-              console.log($scope.company);
+        $scope.category = data.data.data.results;
+        console.log(category);
+
+    });
+
+    $scope.getCompany = function (categoryId) {
+        console.log(categoryId);
+        $scope.company = [];
+        NavigationService.callApiWithData('Category/getOne', {
+            _id: categoryId
+        }, function (data) {
+            console.log(data.data.data.description);
+            $scope.catDesc = data.data.data.description;
+            console.log(data.data.data.company);
+            $scope.companyView = false;
+            $scope.categoryId = categoryId;
+            $scope.company = data.data.data.company;
+            console.log(">>>>>>");
+            console.log($scope.company);
             // var category = [];
             // var logo = '../img/ge.png';
-            
+
             // for (var i in data.data.data.results) {
             //     category.push({img: logo, value: data.data.data.results[i]._id});
-    
+
             //   }
             //   $scope.category = category;
             //   console.log(category);
-              
-    });      
-    } 
-    $scope.changeCompany = function(company){
-        console.log(); 
+
+        });
+    }
+
+    $scope.getCompanyDescription = function (categoryId) {
+        console.log(categoryId);
+        $scope.company = [];
+        NavigationService.callApiWithData('Category/getOne', {
+            _id: categoryId
+        }, function (data) {
+            console.log(data.data.data.description);
+            $scope.catDesc = data.data.data.description;
+            $scope.companyView = false;
+
+        });
+    }
+    $scope.changeCompany = function (company) {
+        console.log();
         $scope.compDesc = company.description;
         $scope.companyId = company._id;
     }
-    $scope.submitVote = function(){
-        NavigationService.callApiWithData('VoteLog/AddVoteLog',{category:$scope.categoryId, company:$scope.companyId},function(data){
+    $scope.submitVote = function () {
+        NavigationService.callApiWithData('VoteLog/AddVoteLog', {
+            category: $scope.categoryId,
+            company: $scope.companyId
+        }, function (data) {
             console.log(data);
         });
     }
@@ -114,9 +132,8 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
         $timeout(function () {
             mySwiper = new Swiper('.leader-board .swiper-container', {
-                pagination: '.swiper-pagination',
                 slidesPerView: 4,
-                paginationClickable: true,
+                pagination: true,
                 loop: true,
                 autoplay: 2500,
                 grabCursor: true,

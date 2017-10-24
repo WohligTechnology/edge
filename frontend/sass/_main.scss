@@ -13,6 +13,7 @@ $brand-grey:#ececec;
 @import "other/font-fix";
 body {
     // padding-top: 70px;
+    font-family: 'AvenirLTStd-Medium';
     color: #000000;
 }
 
@@ -172,7 +173,7 @@ header {
 .get-center {
     width: 100%;
     position: absolute;
-    top: 70%;
+    top: 65%;
     left: 50%;
     @include transform(translate(-50%, -50%));
 }
@@ -192,11 +193,11 @@ p {
 }
 
 .main-content {
-    width: 330px;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
     h3 {
-        font-size: 36px;
+        font-size: 60px;
         color: #fff;
         margin: 0;
         letter-spacing: 2px;
@@ -277,18 +278,20 @@ p {
 .partner-content {
     padding-top: 50px;
 }
+
 .category {
     .swiper-slide {
         background: transparent;
         img {
             cursor: pointer;
             @include transition(all ease 300ms);
-            &:hover{
+            &:hover {
                 @include transform(scale(0.9));
             }
         }
     }
 }
+
 //swiper
 .swiper-slide {
     background: transparent;
@@ -299,5 +302,78 @@ p {
     background: transparent !important;
     i {
         font-size: 36px;
+    }
+}
+
+//scroll to top
+.scroll-top {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    font-size: 20px;
+    z-index: 3;
+    width: 90px;
+    height: 90px;
+    background: $brand-primary;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    line-height: 110%;
+    padding-top: 19px;
+    opacity: 1;
+    cursor: pointer;
+    border: 5px solid #fff;
+    @include transition(all ease 300ms);
+    &:hover {
+        opacity: 0.85;
+        @include transform(scale(0.95));
+    }
+}
+.nomination-title {
+    background: $brand-grey;
+    padding: 15px;
+    height: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    border: 5px solid $brand-primary;
+    h5{
+        font-size: 20px;
+        width: 100%;
+        color: #000;
+    }
+}
+.category-title {
+    height: 130px;
+    background: $brand-primary;
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    letter-spacing: 1px;
+    border: 5px solid $brand-success;
+    cursor: pointer;
+    @include transition(all ease 300ms);
+    h4 {
+        width: 100%;
+    }
+    &:hover {
+        background: darken($brand-primary, 10%);
+        color: darken(#fff, 10%);
+    }
+}
+
+.sub-title{
+    h4{
+        font-size: 30px;
+        letter-spacing: 2px;
     }
 }

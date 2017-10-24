@@ -1,13 +1,13 @@
-    <!-- <h1>four</h1> -->
+<!-- <h1>four</h1> -->
 <!-- section one category page -->
-<section class="category" >
+<section class="category">
     <div class="bg-grey min-hght">
         <div class="container">
             <div class="row">
                 <div class="col-xs-8">
                     <div class="category-content">
                         <p class="text-justify" ng-model="catDesc">
-                           {{catDesc}}
+                            {{catDesc}}
                         </p>
                     </div>
                 </div>
@@ -39,16 +39,18 @@
                     </div>
                 </div>
             </div> -->
-            <div class="row">
-                <div class="col-md-2" ng-repeat="myslide in category track by $index">
-                    <div class="category-title" ng-click="getCompany(myslide._id)" ng-model="myslide._id">
-                        {{myslide.name}}
+            <div class="mb15">
+                <div class="row">
+                    <div class="col-md-2" ng-repeat="myslide in category track by $index">
+                        <div class="category-title" ng-click="getCompany(myslide._id);scrollNomination()" ng-model="myslide._id" ng-mouseover="getCompanyDescription(myslide._id)">
+                            <h4 class="text-center">{{myslide.name}}</h4>
+                        </div>
+                        <!-- {{$index + 1}}  <figure>
+                            <img ng-src="../img/ge.png" class="img-responsive iconBlue" alt="Edge" ng-click="getCompany(myslide._id)">
+                        </figure> -->
                     </div>
-                    <!-- {{$index + 1}}  <figure>
-                        <img ng-src="../img/ge.png" class="img-responsive iconBlue" alt="Edge" ng-click="getCompany(myslide._id)">
-                    </figure> -->
                 </div>
-            </div>  
+            </div>
         </div>
     </div>
 </section>

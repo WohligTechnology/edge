@@ -11,3 +11,25 @@
     src: url("../fonts/glyphicons-halflings-regular.eot");
     src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
+
+// fonts
+@font-face {
+    font-family: "AvenirLTStd-Medium";
+    src: url('../fonts/AvenirLTStd-Medium.otf');
+  }
+  @font-face {
+    font-family: "AvenirLTStd-Black";
+    src: url('../fonts/AvenirLTStd-Black.otf');
+  }
+  @font-face {
+    font-family: "AvenirLTStd-Heavy";
+    src: url('../fonts/AvenirLTStd-Heavy.otf');
+  }
+  @font-face {
+    font-family: "AvenirLTStd-Light";
+    src: url('../fonts/AvenirLTStd-Light.otf');
+  }
+  @font-face {
+    font-family: "AvenirLTStd-Roman";
+    src: url('../fonts/AvenirLTStd-Roman.otf');
+  }
