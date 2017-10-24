@@ -19,6 +19,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
        
     $scope.getCompany = function(categoryId){
           console.log(categoryId);
+          $scope.company = [];
           NavigationService.callApiWithData('Category/getOne',{_id:categoryId},function(data){
               console.log(data.data.data.company);
               $scope.companyView = false;

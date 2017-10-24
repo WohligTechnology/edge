@@ -1,4 +1,4 @@
-<!-- <h1>four</h1> -->
+    <!-- <h1>four</h1> -->
 <!-- section one category page -->
 <section class="category" >
     <div class="bg-grey min-hght">
@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper-custom">
+            <!-- <div class="swiper-custom">
                 <div class="swiper-container ">
                     <div class="swiper-wrapper ">
                         <li ng-repeat="myslide in category track by $index" class="swiper-slide text-center">
@@ -36,15 +36,24 @@
                             </figure>
                         </li>
                     </div>
-                    <!-- Add Arrows -->
                    <div class="swiper-button-next">
                         <i class="fa fa-caret-right color-black" aria-hidden="true"></i>
                     </div>
                     <div class="swiper-button-prev">
-                        <i class="fa fa-caret-left color-black"" aria-hidden="true"></i>
+                        <i class="fa fa-caret-left color-black" aria-hidden="true"></i>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <div class="row">
+                <div class="col-md-2" ng-repeat="myslide in category track by $index">
+                    <div class="category-title" ng-click="getCompany(myslide._id)">
+                        {{myslide.name}}
+                    </div>
+                    <!-- {{$index + 1}}  <figure>
+                        <img ng-src="../img/ge.png" class="img-responsive iconBlue" alt="Edge" ng-click="getCompany(myslide._id)">
+                    </figure> -->
+                </div>
+            </div>  
         </div>
     </div>
 </section>
