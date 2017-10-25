@@ -48,6 +48,8 @@
         <script src="bower_components/moment/min/moment.min.js"></script>
         
         <script src="bower_components/swiper/dist/js/swiper.jquery.js"></script>
+
+        <script src="bower_components/selectize/dist/js/standalone/selectize.min.js"></script>
         
         <script src="bower_components/angular/angular.js"></script>
         
@@ -74,6 +76,8 @@
         <script src="bower_components/angular-ui-swiper/dist/angular-ui-swiper.js"></script>
         
         <script src="bower_components/angular-toastr/dist/angular-toastr.js"></script>
+
+        <script src="bower_components/angular-selectize2/dist/angular-selectize.js"></script>
         
         <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
         
@@ -100,6 +104,15 @@
         <script src="frontend/js/controllers/header-controller.js"></script>
         
         <script src="frontend/js/controllers/language-controller.js"></script>
+          <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
         
 </body>
 

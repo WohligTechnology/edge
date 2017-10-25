@@ -68,6 +68,15 @@ footer {
     box-shadow: none;
 }
 
+.btn-block {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 12px 20px;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
 .form-control:focus {
     border-color: $brand-primary;
     outline: 0;
@@ -169,13 +178,15 @@ header {
     position: absolute;
     bottom: 0;
 }
-
 .get-center {
     width: 100%;
     position: absolute;
-    top: 65%;
+    top: 50%;
     left: 50%;
     @include transform(translate(-50%, -50%));
+}
+.get-center-banner {
+    top: 65%;
 }
 
 .min-hght {
@@ -209,7 +220,6 @@ p {
 .large-character {
     font-size: 20em;
     line-height: 1;
-    font-weight: bold;
 }
 
 .about-content {
@@ -222,7 +232,7 @@ p {
     letter-spacing: 3px;
     line-height: 1;
     position: absolute;
-    top: 50%;
+    top: 43%;
     left: 50%;
     @include transform(translate(-50%, -50%));
 }
@@ -329,9 +339,10 @@ p {
         @include transform(scale(0.95));
     }
 }
+
 .nomination-title {
     background: $brand-grey;
-    padding: 15px;
+    padding: 5px;
     height: 100px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -340,12 +351,13 @@ p {
     margin-bottom: 15px;
     letter-spacing: 1px;
     border: 5px solid $brand-primary;
-    h5{
+    h5 {
         font-size: 20px;
         width: 100%;
         color: #000;
     }
 }
+
 .category-title {
     height: 130px;
     background: $brand-primary;
@@ -357,13 +369,17 @@ p {
     -ms-flex-align: center;
     align-items: center;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 5px;
     letter-spacing: 1px;
     border: 5px solid $brand-success;
     cursor: pointer;
     @include transition(all ease 300ms);
+    overflow: hidden;
     h4 {
         width: 100%;
+        font-family: 'AvenirLTStd-Light';
+        font-size: 16px;
+        text-transform: uppercase;
     }
     &:hover {
         background: darken($brand-primary, 10%);
@@ -371,9 +387,37 @@ p {
     }
 }
 
-.sub-title{
-    h4{
+.sub-title {
+    h4 {
         font-size: 30px;
         letter-spacing: 2px;
     }
+}
+
+.nomination {
+    padding-bottom: 30px;
+}
+
+//modal success
+.success-modal {
+    padding: 20px 20px 40px 20px;
+    .img-holder {
+        img {
+            margin: 0 auto;
+        }
+    }
+}
+
+.success-dialogue h4 {
+    font-size: 34px;
+    color: $brand-primary;
+    font-family: AvenirLTStd-Heavy;
+    margin: 20px 0;
+}
+
+//close
+.close{
+    opacity: 1;
+    font-size: 30px;
+    padding: 10px;
 }

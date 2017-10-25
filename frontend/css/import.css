@@ -10067,6 +10067,14 @@ footer {
   -webkit-box-shadow: none;
           box-shadow: none; }
 
+.btn-block {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px 20px;
+  font-size: 18px;
+  letter-spacing: 2px; }
+
 .form-control:focus {
   border-color: #2372ba;
   outline: 0;
@@ -10148,10 +10156,13 @@ header {
 .get-center {
   width: 100%;
   position: absolute;
-  top: 65%;
+  top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
+
+.get-center-banner {
+  top: 65%; }
 
 .min-hght {
   min-height: 100vh; }
@@ -10176,8 +10187,7 @@ p {
 
 .large-character {
   font-size: 20em;
-  line-height: 1;
-  font-weight: bold; }
+  line-height: 1; }
 
 .about-content {
   padding: 20vh 20px;
@@ -10188,7 +10198,7 @@ p {
   letter-spacing: 3px;
   line-height: 1;
   position: absolute;
-  top: 50%;
+  top: 43%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
@@ -10277,7 +10287,7 @@ p {
 
 .nomination-title {
   background: #ececec;
-  padding: 15px;
+  padding: 5px;
   height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10304,14 +10314,18 @@ p {
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 15px;
-  padding: 10px;
+  padding: 5px;
   letter-spacing: 1px;
   border: 5px solid #71bf44;
   cursor: pointer;
   -webkit-transition: all ease 300ms;
-  transition: all ease 300ms; }
+  transition: all ease 300ms;
+  overflow: hidden; }
   .category-title h4 {
-    width: 100%; }
+    width: 100%;
+    font-family: 'AvenirLTStd-Light';
+    font-size: 16px;
+    text-transform: uppercase; }
   .category-title:hover {
     background: #1b588f;
     color: #e6e5e5; }
@@ -10319,6 +10333,25 @@ p {
 .sub-title h4 {
   font-size: 30px;
   letter-spacing: 2px; }
+
+.nomination {
+  padding-bottom: 30px; }
+
+.success-modal {
+  padding: 20px 20px 40px 20px; }
+  .success-modal .img-holder img {
+    margin: 0 auto; }
+
+.success-dialogue h4 {
+  font-size: 34px;
+  color: #2372ba;
+  font-family: AvenirLTStd-Heavy;
+  margin: 20px 0; }
+
+.close {
+  opacity: 1;
+  font-size: 30px;
+  padding: 10px; }
 
 #fancybox-loading,
 .fancybox-close,

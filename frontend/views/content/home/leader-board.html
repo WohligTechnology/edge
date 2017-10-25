@@ -15,7 +15,13 @@
                         </div>
                     </div>
                     <div class="sub-title box-white btn btn-default text-uppercase lower-title">
-                        Category
+                        <!-- <selectize config='categoryConfig' options='category' ng-required="true"></selectize> -->
+                        <select name="singleSelect" id="singleSelect" ng-model="myslide._id" ng-change="getCompanyData(myslide._id)">
+                            <option selected>---Please select category---</option>
+                            <option ng-repeat="myslide in category track by $index" value="{{myslide._id}}">
+                                {{myslide.name}}
+                            </option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-xs-6">
@@ -24,15 +30,18 @@
                             <div class="swiper-custom">
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
-                                        <li ng-repeat="myslide in leaderBoard track by $index" class="swiper-slide text-center">
+                                        <li ng-repeat="companyvote in company track by $index" class="swiper-slide text-center">
                                             <div>
                                                 <div class="bar mb15">
-                                                    <div class="bar-value get-bottom" style="height: {{myslide.value}}%;">
+                                                    <div class="bar-value get-bottom" style="height: {{companyvote.value}}%;">
                                                     </div>
                                                 </div>
-                                                <figure>
+                                                <div class="title">
+                                                        {{companyvote.companyObj.name}}
+                                                </div>
+                                                <!-- <figure>
                                                     <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
-                                                </figure>
+                                                </figure> -->
                                             </div>
                                         </li>
                                     </div>
@@ -49,8 +58,11 @@
                     </div>
                 </div>
                 <div class="col-xs-2">
-                    <div class="sub-title box-white btn btn-default text-uppercase upper-title">
+                    <!-- <div class="sub-title box-white btn btn-default text-uppercase upper-title">
                         Best Innovation
+                    </div> -->
+                    <div class="sub-title box-white btn btn-default text-uppercase upper-title" ng-if="categoryName">
+                        {{categoryName}}
                     </div>
                 </div>
             </div>
