@@ -16,7 +16,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
             //   }
             $scope.category = data.data.data.results;
-            console.log("category",$scope.category );
+            console.log("category", $scope.category);
 
         });
     };
@@ -47,9 +47,30 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             _id: categoryId
         }, function (data) {
             $scope.companyView = false;
+            $scope.totalVoteCount = 0;
             $scope.company = data.data.data.company;
+            _.each($scope.company, function (value) {
+                $scope.totalVoteCount += value.voteCount;
+            })
+            console.log("$scope.totalVoteCount", $scope.totalVoteCount);
             $scope.categoryName = data.data.data.name;
         });
+        $timeout(function () {
+            mySwiper = new Swiper('.leader-board .swiper-container', {
+                slidesPerView: 4,
+                pagination: true,
+                loop: true,
+                autoplay: 2500,
+                grabCursor: true,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+            });
+            $(".leader-board .swiper-container").hover(function () {
+                mySwiper.stopAutoplay();
+            }, function () {
+                mySwiper.startAutoplay();
+            });
+        }, 1000);
     };
     // Add to board modal
     $scope.categoryValue = {
@@ -109,41 +130,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }
     }
 
-    $scope.nominaton = [{
-            img: '../img/ge.png',
-            value: '',
-        },
-        {
-            img: '../img/burger.png',
-            value: '',
-        },
-        {
-            img: '../img/fila.png',
-            value: '',
-        },
-        {
-            img: '../img/ge.png',
-            value: '',
-        },
-    ];
 
-    $scope.leaderBoard = [{
-            img: '../img/ge.png',
-            value: '50',
-        },
-        {
-            img: '../img/burger.png',
-            value: '60',
-        },
-        {
-            img: '../img/fila.png',
-            value: '90',
-        },
-        {
-            img: '../img/ge.png',
-            value: '30',
-        },
-    ];
     var abc = _.times(100, function (n) {
         return n;
     });
@@ -164,51 +151,4 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         five: "views/content/home/nomination.html",
         six: "views/content/home/partner.html",
     };
-
-
-    $scope.$on('$viewContentLoaded', function (event) {
-
-        $timeout(function () {
-            mySwiper = new Swiper('.leader-board .swiper-container', {
-                slidesPerView: 4,
-                pagination: true,
-                loop: true,
-                autoplay: 2500,
-                grabCursor: true,
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                }
-            });
-            // mySwiper = new Swiper('.category .swiper-container', {
-            //     pagination: '.swiper-pagination',
-            //     slidesPerView: 4,
-            //     paginationClickable: true,
-            //     loop: true,
-            //     autoplay: 2500,
-            //     grabCursor: true,
-            //     navigation: {
-            //         nextEl: '.swiper-button-next',
-            //         prevEl: '.swiper-button-prev',
-            //     }
-            // });
-            // mySwiper = new Swiper('.nomination .swiper-container', {
-            //     pagination: '.swiper-pagination',
-            //     slidesPerView: 4,
-            //     paginationClickable: true,
-            //     loop: true,
-            //     autoplay: 2500,
-            //     grabCursor: true,
-            //     navigation: {
-            //         nextEl: '.swiper-button-next',
-            //         prevEl: '.swiper-button-prev',
-            //     }
-            // });
-            $(".leader-board .swiper-container").hover(function () {
-                mySwiper.stopAutoplay();
-            }, function () {
-                mySwiper.startAutoplay();
-            });
-        }, 300)
-    });
 })

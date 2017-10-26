@@ -14,7 +14,10 @@ $brand-grey:#ececec;
 body {
     // padding-top: 70px;
     font-family: 'AvenirLTStd-Medium';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     color: #000000;
+    letter-spacing: 1.2px;
 }
 
 img.loading {
@@ -136,6 +139,10 @@ header {
     margin-bottom: 15px;
 }
 
+.mt15 {
+    margin-top: 15px;
+}
+
 //color
 .color-blue {
     color: $brand-primary;
@@ -178,6 +185,7 @@ header {
     position: absolute;
     bottom: 0;
 }
+
 .get-center {
     width: 100%;
     position: absolute;
@@ -185,8 +193,18 @@ header {
     left: 50%;
     @include transform(translate(-50%, -50%));
 }
+
 .get-center-banner {
     top: 65%;
+}
+
+.get-center-content {
+    @include display(flex);
+    align-items: center;
+}
+
+.full-width {
+    width: 100%;
 }
 
 .min-hght {
@@ -271,7 +289,7 @@ p {
         }
     }
     .bar {
-        height: calc(100vh - 180px);
+        height: 300px;
         width: 30px;
         display: block;
         margin: 0 auto 15px;
@@ -283,9 +301,14 @@ p {
 }
 
 //category
+.nomination-content {
+    padding-top: 80px;
+}
+
 .category-content,
-.nomination-content,
-.partner-content {
+.partner-content,
+.partners,
+.leader-board {
     padding-top: 50px;
 }
 
@@ -343,7 +366,7 @@ p {
 .nomination-title {
     background: $brand-grey;
     padding: 5px;
-    height: 100px;
+    height: 120px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -352,9 +375,13 @@ p {
     letter-spacing: 1px;
     border: 5px solid $brand-primary;
     h5 {
-        font-size: 20px;
         width: 100%;
+        font-family: 'AvenirLTStd-Medium';
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 16px;
         color: #000;
+        text-transform: uppercase;
     }
 }
 
@@ -377,7 +404,9 @@ p {
     overflow: hidden;
     h4 {
         width: 100%;
-        font-family: 'AvenirLTStd-Light';
+        font-family: 'AvenirLTStd-Medium';
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         font-size: 16px;
         text-transform: uppercase;
     }
@@ -399,6 +428,10 @@ p {
 }
 
 //modal success
+.modal-content {
+    background: $brand-grey;
+}
+
 .success-modal {
     padding: 20px 20px 40px 20px;
     .img-holder {
@@ -406,18 +439,59 @@ p {
             margin: 0 auto;
         }
     }
-}
-
-.success-dialogue h4 {
-    font-size: 34px;
-    color: $brand-primary;
-    font-family: AvenirLTStd-Heavy;
-    margin: 20px 0;
+    .success-dialogue h4 {
+        font-size: 34px;
+        color: $brand-primary;
+        font-family: AvenirLTStd-Heavy;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        margin: 20px 0;
+    }
 }
 
 //close
-.close{
+.close {
     opacity: 1;
     font-size: 30px;
     padding: 10px;
+}
+
+//custom select
+.custom-select {
+    position: relative;
+    display: inline-block;
+    &.sub-title.box-white.btn.btn-default {
+        padding: 0;
+    }
+}
+
+.custom-select select {
+    display: inline-block;
+    margin: 0;
+    outline: none;
+    line-height: 1.2;
+    background: #fff;
+    color: #000;
+    border: 0;
+}
+
+
+/* Select arrow styling */
+
+.custom-select:after {
+    content: "\f107";
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    line-height: 30px;
+    padding: 0 7px;
+    background: #fff;
+    color: #000;
+    pointer-events: none;
+}
+
+.no-pointer-events .custom-select:after {
+    content: none;
 }

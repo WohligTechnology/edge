@@ -127,5 +127,4 @@ sendgrid.env
 frontend/Archive.zip
 frontend/css/import.css
 frontend/css/production.css
-frontend/css/import.css
-
+frontend/css/import.css.map

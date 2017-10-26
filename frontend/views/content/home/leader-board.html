@@ -1,7 +1,7 @@
 <!-- <h1>three</h1> -->
 <!-- section one leader board page -->
-<section class="leader-board">
-    <div class="bg-blue min-hght">
+<section class="leader-board bg-blue">
+    <div class="min-hght rel">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-4">
@@ -14,43 +14,55 @@
                             <br> Board
                         </div>
                     </div>
-                    <div class="sub-title box-white btn btn-default text-uppercase lower-title">
-                        <!-- <selectize config='categoryConfig' options='category' ng-required="true"></selectize> -->
-                        <select name="singleSelect" id="singleSelect" ng-model="myslide._id" ng-change="getCompanyData(myslide._id)">
-                            <option selected>---Please select category---</option>
-                            <option ng-repeat="myslide in category track by $index" value="{{myslide._id}}">
-                                {{myslide.name}}
-                            </option>
-                        </select>
+                    <div class="mt15">
+                        <div class="text-uppercase">
+                            Category
+                        </div>
+                        <div class="sub-title custom-select box-white btn btn-default text-uppercase lower-title">
+                            <!-- <selectize config='categoryConfig' options='category' ng-required="true"></selectize> -->
+                            <select name="singleSelect" id="singleSelect" ng-model="myslide._id" class="form-control" ng-change="getCompanyData(myslide._id)">
+                                <option selected>---Please select category---</option>
+                                <option ng-repeat="myslide in category track by $index" value="{{myslide._id}}">
+                                    {{myslide.name}}
+                                </option>
+                            </select>
+                        </div>
                     </div>
+
                 </div>
                 <div class="col-xs-6">
                     <div class="min-hght rel mb15">
-                        <div class="get-bottom">
-                            <div class="swiper-custom">
-                                <div class="swiper-container">
-                                    <div class="swiper-wrapper">
-                                        <li ng-repeat="companyvote in company track by $index" class="swiper-slide text-center">
-                                            <div>
-                                                <div class="bar mb15">
-                                                    <div class="bar-value get-bottom" style="height: {{companyvote.value}}%;">
+                        <div>
+                            <div class="no-datafound text-center get-center text-uppercase" ng-if="company.length === 0">
+                                <h4>Please vote to see the Board</h4>
+                            </div>
+                            <div class="get-bottom">
+                                <div class="swiper-custom">
+                                    <div class="swiper-container">
+                                        <div class="swiper-wrapper">
+                                            <li ng-repeat="companyvote in company track by $index" class="swiper-slide text-center">
+                                                <div>
+                                                    <p ng-if="companyvote">{{companyvote.voteCount/totalVoteCount*100 | number : 2}}%</p>
+                                                    <div class="bar mb15">
+                                                        <div class="bar-value get-bottom" style="height:{{companyvote.voteCount/totalVoteCount*100}}%;">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="title">
+                                                    <div class="title">
                                                         {{companyvote.companyObj.name}}
+                                                    </div>
+                                                    <!-- <figure>
+                                                                            <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
+                                                                        </figure> -->
                                                 </div>
-                                                <!-- <figure>
-                                                    <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
-                                                </figure> -->
-                                            </div>
-                                        </li>
-                                    </div>
-                                    <!-- Add Arrows -->
-                                    <div class="swiper-button-next">
-                                        <i class="fa fa-caret-right color-green" aria-hidden="true"></i>
-                                    </div>
-                                    <div class="swiper-button-prev">
-                                        <i class="fa fa-caret-left color-green" aria-hidden="true"></i>
+                                            </li>
+                                        </div>
+                                        <!-- Add Arrows -->
+                                        <div class="swiper-button-next">
+                                            <i class="fa fa-caret-right color-green" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="swiper-button-prev">
+                                            <i class="fa fa-caret-left color-green" aria-hidden="true"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -59,10 +71,10 @@
                 </div>
                 <div class="col-xs-2">
                     <!-- <div class="sub-title box-white btn btn-default text-uppercase upper-title">
-                        Best Innovation
-                    </div> -->
+                                    Best Innovation
+                                </div> -->
                     <div class="sub-title box-white btn btn-default text-uppercase upper-title" ng-if="categoryName">
-                        {{categoryName}}
+                    {{categoryName}}
                     </div>
                 </div>
             </div>
