@@ -10259,6 +10259,8 @@ p {
 .nomination-content {
   padding-top: 80px; }
 
+.category,
+.about,
 .category-content,
 .partner-content,
 .partners,
@@ -10471,4 +10473,7 @@ p {
 
 @media (max-width: 767px) {
   .bg-main {
-    background-position: 23% 0; } }
+    background-position: 23% 0; }
+  .about-content {
+    padding: 20px;
+    line-height: 130%; } }
