@@ -70,7 +70,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             }, function () {
                 mySwiper.startAutoplay();
             });
-        }, 1000);
+        }, 100);
     };
     // Add to board modal
     $scope.categoryValue = {
