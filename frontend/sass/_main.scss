@@ -54,7 +54,7 @@ a,
 footer {
     font-size: 12px;
     background-color: #eee;
-    padding: 10px 0;
+    padding: 15px 0;
     p {
         margin: 0;
     }
@@ -301,7 +301,8 @@ p {
 }
 
 //category
-.nomination-content,.nomination {
+.nomination-content,
+.nomination {
     padding-top: 80px;
 }
 
@@ -311,7 +312,7 @@ p {
 .partner-content,
 .partners,
 .leader-board,
- {
+{
     padding-top: 50px;
 }
 
@@ -347,22 +348,41 @@ p {
     bottom: 15px;
     right: 15px;
     font-size: 20px;
-    z-index: 3;
-    width: 90px;
-    height: 90px;
-    background: $brand-primary;
+    z-index: 3; // width: 90px;
+    // height: 90px;
+    // background: $brand-primary;
     text-align: center;
-    color: #fff;
-    border-radius: 50%;
-    line-height: 110%;
+    color: #fff; // border-radius: 50%;
+    // line-height: 110%;
     padding-top: 19px;
     opacity: 1;
-    cursor: pointer;
-    border: 5px solid #fff;
+    cursor: pointer; // border: 5px solid #fff;
     @include transition(all ease 300ms);
-    &:hover {
-        opacity: 0.85;
-        @include transform(scale(0.95));
+    .vote {
+        width: 90px;
+        height: 90px;
+        background: $brand-primary;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        line-height: 110%;
+        padding-top: 19px;
+        margin: 0px auto;
+        &:hover {
+            opacity: 0.85;
+            @include transform(scale(0.95));
+        }
+        @include transition(all ease 300ms);
+    }
+    .knowmore {
+        a {
+            color: #fff;
+            margin: 4px;
+            margin-top: 10px;
+            color: #2372ba;
+            margin: 4px;
+            border: 2px solid #2372ba;
+            background: white;
+        }
     }
 }
 
@@ -477,7 +497,7 @@ p {
     color: #000;
     border: 0;
     min-width: 250px;
-    min-height: 30px;
+    height: 30px;
 }
 
 
@@ -499,4 +519,11 @@ p {
 
 .no-pointer-events .custom-select:after {
     content: none;
+}
+
+.top-right {
+    margin-top: -50px;
+    position: absolute;
+    right: 10%;
+    top: 5%;
 }
