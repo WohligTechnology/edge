@@ -29,7 +29,7 @@ module.exports = {
   // realHost: "http://tushar.io",
 
   port: 85,
-  realHost: "http://edge.wohlig.co.in",
+  realHost: "http://fintechedgeawards.com",
   emails: ["chintan@wohlig.com", "jagruti@wohlig.com", "tushar@wohlig.com", "chirag@wohlig.com", "harsh@wohlig.com"]
 
   /***************************************************************************
