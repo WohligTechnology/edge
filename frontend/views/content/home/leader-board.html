@@ -19,13 +19,18 @@
                             Category
                         </div>
                         <div class="sub-title custom-select box-white btn btn-default text-uppercase lower-title">
-                            <!-- <selectize config='categoryConfig' options='category' ng-required="true"></selectize> -->
-                            <select name="singleSelect" id="singleSelect" ng-model="myslide._id" class="form-control" ng-change="getCompanyData(myslide._id)">
-                                <option selected>---Please select category---</option>
+                            <!-- <select name="singleSelect" id="singleSelect" ng-model="myslide._id" class="form-control" ng-change="getCompanyData(myslide._id)">
                                 <option ng-repeat="myslide in category track by $index" value="{{myslide._id}}">
                                     {{myslide.name}}
                                 </option>
-                            </select>
+                            </select> -->
+                            <select name="singleSelect" 
+                            id="singleSelect" 
+                            ng-model="category._id"
+                            ng-change="getCompanyData(category._id)"
+                            ng-init=" category._id = category[0].id"  
+                            ng-options="category._id as category.name for category in category">          
+                         </select>
                         </div>
                     </div>
 

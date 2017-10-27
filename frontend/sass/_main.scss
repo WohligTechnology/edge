@@ -301,7 +301,7 @@ p {
 }
 
 //category
-.nomination-content {
+.nomination-content,.nomination {
     padding-top: 80px;
 }
 
@@ -310,7 +310,8 @@ p {
 .category-content,
 .partner-content,
 .partners,
-.leader-board {
+.leader-board,
+ {
     padding-top: 50px;
 }
 
@@ -475,6 +476,8 @@ p {
     background: #fff;
     color: #000;
     border: 0;
+    min-width: 250px;
+    min-height: 30px;
 }
 
 
