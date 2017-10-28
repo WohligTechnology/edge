@@ -42,6 +42,11 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
         });
     };
+    $timeout(function () {
+        $('html,body').animate({
+            scrollTop: $(".vote-now").offset().top
+        }, 'slow');
+    }, 300);
     $scope.companyvote = [];
     $scope.getCompanyData = function (categoryId) {
         console.log(categoryId);
@@ -169,11 +174,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     // $('html,body').animate({
     //     scrollTop: $(".vote-now").offset().top
     // }, 'slow');
-    $timeout(function () {
-        $('html,body').animate({
-            scrollTop: $(".vote-now").offset().top
-        }, 'slow');
-    }, 500);
 
     $scope.section = {
         one: "views/content/home/main.html",
