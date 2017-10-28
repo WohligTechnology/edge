@@ -27,21 +27,23 @@
                                 Category
                             </div>
                             <div class="sub-title custom-select box-white btn btn-default text-uppercase lower-title">
-                                <select name="singleSelect" id="singleSelect" ng-model="category._id" ng-change="getCompanyData(category._id)" ng-init="category._id = category[0]._id"
-                                    ng-options="category._id as category.name for category in category">
+                                <select name="singleSelect" id="singleSelect" ng-model="category._id" ng-change="getCompanyData(category._id)" ng-options="category._id as category.name for category in category">
                                 </select>
                             </div>
-
                         </div>
                     </div>
                 </div>
                 <div class="col-md-offset-4 col-sm-offset-4 col-md-6 col-sm-6">
+                    <div class="sub-title" ng-if="companyvote.length == 0">
+                        <h4 class="text-center get-center">Please select category to view Leaderboard status.</h4>
+                    </div>
+                    
                     <div class="min-hght-80 rel mb15">
-                        <div class="get-bottom">
+                        <div class="get-bottom" ng-if="companyvote.length > 0">
                             <div class="swiper-custom">
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">
-                                        <li ng-repeat="companyvote in company track by $index" class="swiper-slide text-center">
+                                        <li ng-repeat="companyvote in companyvote track by $index" class="swiper-slide text-center">
                                             <div>
                                                 <p ng-if="companyvote">{{companyvote.voteCount/totalVoteCount*100 | number : 2}}%</p>
                                                 <div class="bar mb15">
@@ -51,9 +53,6 @@
                                                 <div class="title">
                                                     {{companyvote.companyObj.name}}
                                                 </div>
-                                                <!-- <figure>
-                                                                            <img ng-src="{{myslide.img}}" class="img-responsive iconBlue" alt="Edge">
-                                                                        </figure> -->
                                             </div>
                                         </li>
                                     </div>

@@ -1,5 +1,5 @@
 var mySwiper;
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal,$state) {
     $scope.template = TemplateService.getHTML("content/home.html");
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
@@ -42,16 +42,16 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
         });
     };
+    $scope.companyvote=[];
     $scope.getCompanyData = function (categoryId) {
         console.log(categoryId);
-        $scope.company = [];
         NavigationService.callApiWithData('Category/getOne', {
             _id: categoryId
         }, function (data) {
             $scope.companyView = false;
             $scope.totalVoteCount = 0;
-            $scope.company = data.data.data.company;
-            _.each($scope.company, function (value) {
+            $scope.companyvote = data.data.data.company;
+            _.each($scope.companyvote, function (value) {
                 $scope.totalVoteCount += value.voteCount;
             })
             console.log("$scope.totalVoteCount", $scope.totalVoteCount);
@@ -94,7 +94,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             }, function () {
                 mySwiper.startAutoplay();
             });
-        }, 100);
+        }, 600);
     }
 
     $scope.getCompanyDescription = function (categoryId) {
