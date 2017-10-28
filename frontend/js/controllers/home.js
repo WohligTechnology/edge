@@ -21,8 +21,8 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         });
     };
     $scope.companyname = "DemoCompany";
-    $scope.facebookurl = "https://www.facebook.com/sharer/sharer.php?u=www.moneycontrol.com/rubique/&quote='I have voted for " + $scope.companyname + " company for the FintechEdge Awards. Every vote counts, vote now –www.moneycontrol.com/rubique/'";
-    $scope.twitterurl = "http://www.twitter.com/share?url=http%3A%2F%2Fwww.moneycontrol.com%2Frubique%2F&text=I have voted for " + $scope.companyname + " company for the FintechEdge Awards. Every vote counts, vote now&hashtags=FintechEdgeAwards";
+    $scope.facebookurl = "https://www.facebook.com/sharer/sharer.php?u=www.moneycontrol.com/rubique/&quote='I have voted. Every vote counts, vote now – www.moneycontrol.com/rubique/'";
+    $scope.twitterurl = "http://www.twitter.com/share?url=http%3A%2F%2Fwww.moneycontrol.com%2Frubique%2F&text=I have voted. Every vote counts, vote now&hashtags=FintechEdgeAwards";
     $scope.category();
     $scope.getCompany = function (categoryId) {
         console.log(categoryId);
