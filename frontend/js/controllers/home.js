@@ -48,7 +48,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             $('html,body').animate({
                 scrollTop: $(".vote-now").offset().top
             }, 'slow');
-        }, 300);
+        }, 1000);
     };
     $scope.scrollData();
     $scope.companyvote = [];
