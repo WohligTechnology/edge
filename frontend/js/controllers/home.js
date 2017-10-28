@@ -42,11 +42,15 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
         });
     };
-    $timeout(function () {
-        $('html,body').animate({
-            scrollTop: $(".vote-now").offset().top
-        }, 'slow');
-    }, 300);
+
+    $scope.scrollData = function () {
+        $timeout(function () {
+            $('html,body').animate({
+                scrollTop: $(".vote-now").offset().top
+            }, 'slow');
+        }, 300);
+    };
+    $scope.scrollData();
     $scope.companyvote = [];
     $scope.getCompanyData = function (categoryId) {
         console.log(categoryId);
