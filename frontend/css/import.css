@@ -10074,7 +10074,7 @@ footer {
   display: block;
   width: 100%;
   margin-bottom: 10px;
-  padding: 12px 20px;
+  padding: 8px 20px;
   font-size: 18px;
   letter-spacing: 2px; }
 
@@ -10207,14 +10207,15 @@ p {
 
 .large-character {
   font-size: 20em;
-  line-height: 1; }
+  line-height: 1;
+  font-family: 'AvenirLTStd-heavy'; }
 
 .about-content {
   padding: 20vh 20px;
   line-height: 130%; }
 
 .text-title {
-  font-size: 3.5em;
+  font-size: 3em;
   letter-spacing: 3px;
   line-height: 1;
   position: absolute;
@@ -10259,6 +10260,10 @@ p {
 .nomination-content,
 .nomination {
   padding-top: 80px; }
+
+.nomination-content {
+  padding-right: 20px;
+  padding-bottom: 20px; }
 
 .category,
 .about,
@@ -10389,9 +10394,10 @@ p {
 .success-modal {
   padding: 20px 20px 40px 20px; }
   .success-modal .img-holder img {
-    margin: 0 auto; }
+    margin: 0 auto;
+    width: 200px; }
   .success-modal .success-dialogue h4 {
-    font-size: 34px;
+    font-size: 24px;
     color: #2372ba;
     font-family: AvenirLTStd-Heavy;
     -webkit-font-smoothing: antialiased;
@@ -10513,4 +10519,6 @@ p {
     min-height: auto; }
   .left-title {
     width: 100%;
-    float: none !important; } }
+    float: none !important; }
+  .mobile-top {
+    margin-top: 90px; } }

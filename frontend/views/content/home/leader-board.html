@@ -8,7 +8,7 @@
                     {{categoryName}}
                 </div>
                 <div class="col-md-4 col-sm-4">
-                    <div>
+                    <div class="mobile-top">
                         <div class="title rel text-uppercase pull-left text-center left-title">
                             <div class="large-character color-green">
                                 L
@@ -35,11 +35,10 @@
                 </div>
                 <div class="col-md-offset-4 col-sm-offset-4 col-md-6 col-sm-6">
                     <div class="sub-title" ng-if="companyvote.length == 0">
-                        <h4 class="text-center get-center">Please select category to view Leaderboard status.</h4>
+                        <h4 class="text-center">Please select category to view Leaderboard status.</h4>
                     </div>
-                    
                     <div class="min-hght-80 rel mb15">
-                        <div class="get-bottom" ng-if="companyvote.length > 0">
+                        <div class="get-bottom static-mobile mt15" ng-if="companyvote.length > 0">
                             <div class="swiper-custom">
                                 <div class="swiper-container">
                                     <div class="swiper-wrapper">

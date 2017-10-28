@@ -75,7 +75,7 @@ footer {
     display: block;
     width: 100%;
     margin-bottom: 10px;
-    padding: 12px 20px;
+    padding: 8px 20px;
     font-size: 18px;
     letter-spacing: 2px;
 }
@@ -238,6 +238,7 @@ p {
 .large-character {
     font-size: 20em;
     line-height: 1;
+    font-family: 'AvenirLTStd-heavy';
 }
 
 .about-content {
@@ -246,7 +247,7 @@ p {
 }
 
 .text-title {
-    font-size: 3.5em;
+    font-size: 3em;
     letter-spacing: 3px;
     line-height: 1;
     position: absolute;
@@ -305,7 +306,10 @@ p {
 .nomination {
     padding-top: 80px;
 }
-
+.nomination-content {
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
 .category,
 .about,
 .category-content,
@@ -460,10 +464,11 @@ p {
     .img-holder {
         img {
             margin: 0 auto;
+            width: 200px;
         }
     }
     .success-dialogue h4 {
-        font-size: 34px;
+        font-size: 24px;
         color: $brand-primary;
         font-family: AvenirLTStd-Heavy;
         -webkit-font-smoothing: antialiased;

@@ -1,5 +1,5 @@
 var mySwiper;
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal,$state) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state) {
     $scope.template = TemplateService.getHTML("content/home.html");
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
@@ -42,7 +42,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
         });
     };
-    $scope.companyvote=[];
+    $scope.companyvote = [];
     $scope.getCompanyData = function (categoryId) {
         console.log(categoryId);
         NavigationService.callApiWithData('Category/getOne', {
@@ -80,15 +80,28 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
     $scope.mySwiperData = function () {
         $timeout(function () {
-            mySwiper = new Swiper('.leader-board .swiper-container', {
-                slidesPerView: 4,
-                pagination: true,
-                loop: true,
-                autoplay: 2500,
-                grabCursor: true,
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
-            });
+            if (screen.width < 767) {
+                mySwiper = new Swiper('.leader-board .swiper-container', {
+                    slidesPerView: 2,
+                    pagination: true,
+                    loop: true,
+                    autoplay: 2500,
+                    grabCursor: true,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                });
+            } else {
+                mySwiper = new Swiper('.leader-board .swiper-container', {
+                    slidesPerView: 4,
+                    pagination: true,
+                    loop: true,
+                    autoplay: 2500,
+                    grabCursor: true,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                });
+            }
+
             $(".leader-board .swiper-container").hover(function () {
                 mySwiper.stopAutoplay();
             }, function () {
