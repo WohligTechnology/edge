@@ -42,7 +42,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
         });
     };
-
     $scope.getCompanyData = function (categoryId) {
         console.log(categoryId);
         $scope.company = [];
@@ -58,23 +57,10 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             console.log("$scope.totalVoteCount", $scope.totalVoteCount);
             $scope.categoryName = data.data.data.name;
         });
-        $timeout(function () {
-            mySwiper = new Swiper('.leader-board .swiper-container', {
-                slidesPerView: 4,
-                pagination: true,
-                loop: true,
-                autoplay: 2500,
-                grabCursor: true,
-                nextButton: '.swiper-button-next',
-                prevButton: '.swiper-button-prev',
-            });
-            $(".leader-board .swiper-container").hover(function () {
-                mySwiper.stopAutoplay();
-            }, function () {
-                mySwiper.startAutoplay();
-            });
-        }, 100);
+        $scope.mySwiperData();
     };
+
+    // $scope.getCompanyData();
     // Add to board modal
     $scope.categoryValue = {
         boardId: null,
@@ -91,6 +77,25 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             $scope.category();
         },
     };
+
+    $scope.mySwiperData = function () {
+        $timeout(function () {
+            mySwiper = new Swiper('.leader-board .swiper-container', {
+                slidesPerView: 4,
+                pagination: true,
+                loop: true,
+                autoplay: 2500,
+                grabCursor: true,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+            });
+            $(".leader-board .swiper-container").hover(function () {
+                mySwiper.stopAutoplay();
+            }, function () {
+                mySwiper.startAutoplay();
+            });
+        }, 100);
+    }
 
     $scope.getCompanyDescription = function (categoryId) {
         console.log(categoryId);
