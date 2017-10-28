@@ -9,8 +9,13 @@
      }
      .static-mobile {
          position: static;
+         @include transform(translate(0, 0));
      }
      .mobile-height-auto {
          min-height: auto;
+     }
+     .left-title{
+        width: 100%;
+        float: none !important;
      }
  }

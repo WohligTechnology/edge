@@ -246,7 +246,7 @@ p {
 }
 
 .text-title {
-    font-size: 4em;
+    font-size: 3.5em;
     letter-spacing: 3px;
     line-height: 1;
     position: absolute;
@@ -366,7 +366,7 @@ p {
         border: 5px solid #fff;
         line-height: 110%;
         padding-top: 19px;
-        margin: 0px auto;
+        margin: 10px auto;
         &:hover {
             opacity: 0.85;
             @include transform(scale(0.95));
@@ -524,6 +524,9 @@ p {
 .top-right {
     margin-top: -50px;
     position: absolute;
-    right: 10%;
+    right: 90px;
     top: 5%;
+}
+.left-title{
+    width: 380px;
 }

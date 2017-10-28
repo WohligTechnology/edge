@@ -10214,7 +10214,7 @@ p {
   line-height: 130%; }
 
 .text-title {
-  font-size: 4em;
+  font-size: 3.5em;
   letter-spacing: 3px;
   line-height: 1;
   position: absolute;
@@ -10309,7 +10309,7 @@ p {
     border: 5px solid #fff;
     line-height: 110%;
     padding-top: 19px;
-    margin: 0px auto;
+    margin: 10px auto;
     -webkit-transition: all ease 300ms;
     transition: all ease 300ms; }
     .scroll-top .vote:hover {
@@ -10440,8 +10440,11 @@ p {
 .top-right {
   margin-top: -50px;
   position: absolute;
-  right: 10%;
+  right: 90px;
   top: 5%; }
+
+.left-title {
+  width: 380px; }
 
 #fancybox-loading,
 .fancybox-close,
@@ -10500,6 +10503,11 @@ p {
     padding: 20px;
     line-height: 130%; }
   .static-mobile {
-    position: static; }
+    position: static;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0); }
   .mobile-height-auto {
-    min-height: auto; } }
+    min-height: auto; }
+  .left-title {
+    width: 100%;
+    float: none !important; } }
