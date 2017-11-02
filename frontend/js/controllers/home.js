@@ -16,26 +16,26 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
 
             //   }
             $scope.category = data.data.data.results;
-            console.log("category", $scope.category);
+            // console.log("category", $scope.category);
 
         });
     };
     $scope.category();
     $scope.getCompany = function (categoryId) {
-        console.log(categoryId);
+        // console.log(categoryId);
         $scope.company = [];
         NavigationService.callApiWithData('Category/getOne', {
             _id: categoryId
         }, function (data) {
             // console.log(data.data.data.description);
             $scope.catDesc = data.data.data.description;
-            console.log(data.data.data.company);
+            // console.log(data.data.data.company);
             $scope.companyView = false;
             $scope.categoryId = categoryId;
             $scope.company = data.data.data.company;
             $scope.categoryName = data.data.data.name;
-            console.log(">>>>>>");
-            console.log($scope.categoryName);
+            // console.log(">>>>>>");
+            // console.log($scope.categoryName);
 
         });
     };
@@ -50,7 +50,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.scrollData();
     $scope.companyvote = [];
     $scope.getCompanyData = function (categoryId) {
-        console.log(categoryId);
+        // console.log(categoryId);
         NavigationService.callApiWithData('Category/getOne', {
             _id: categoryId
         }, function (data) {
@@ -60,7 +60,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             _.each($scope.companyvote, function (value) {
                 $scope.totalVoteCount += value.voteCount;
             })
-            console.log("$scope.totalVoteCount", $scope.totalVoteCount);
+            // console.log("$scope.totalVoteCount", $scope.totalVoteCount);
             $scope.categoryName = data.data.data.name;
         });
         $scope.mySwiperData();
@@ -117,29 +117,29 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     }
 
     $scope.getCompanyDescription = function (categoryId) {
-        console.log(categoryId);
+        // console.log(categoryId);
         $scope.company = [];
         NavigationService.callApiWithData('Category/getOne', {
             _id: categoryId
         }, function (data) {
-            console.log(data.data.data.description);
+            // console.log(data.data.data.description);
             $scope.catDesc = data.data.data.description;
             $scope.companyView = false;
 
         });
     }
     $scope.changeCompany = function (company) {
-        console.log(company.companyObj);
+        // console.log(company.companyObj);
         $scope.compDesc = company.description;
         $scope.companyId = company._id;
         $scope.companyname = company.companyObj.name;
-        console.log($scope.companyname);
+        // console.log($scope.companyname);
         $scope.facebookurl = "https://www.facebook.com/sharer/sharer.php?u=www.moneycontrol.com/rubique/&quote='I have voted for " + $scope.companyname + " company for the FintechEdge Awards. Every vote counts, vote now –www.moneycontrol.com/rubique/'";
         $scope.twitterurl = "http://www.twitter.com/share?url=http%3A%2F%2Fwww.moneycontrol.com%2Frubique%2F&text=I have voted for " + $scope.companyname + " company for the FintechEdge Awards. Every vote counts, vote now&hashtags=FintechEdgeAwards";
       
     }
     $scope.submitVote = function () {
-        console.log($scope.companyId)
+        // console.log($scope.companyId)
         if (!$scope.companyId) {
             $scope.errormessage = {
                 name: "Please select a option"
@@ -152,7 +152,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             }, function (data) {
                 // console.log(data);
                 $("<a>").attr("href", $scope.facebookurl).attr("target", "_blank")[0].click();
-                console.log($scope.companyname);
+                // console.log($scope.companyname);
                   $uibModal.open({
                     animation: true,
                     templateUrl: 'views/modal/success.html',
@@ -172,7 +172,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     var i = 0;
     $scope.buttonClick = function () {
         i++;
-        console.log("This is a button Click");
+        // console.log("This is a button Click");
     };
 
 
