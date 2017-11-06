@@ -2,7 +2,7 @@ myApp.service('TemplateService', function () {
     this.title = "Home";
     this.meta = "";
     this.metadesc = "";
-
+    this.adminurl = adminurl;
     var d = new Date();
     this.year = d.getFullYear();
 

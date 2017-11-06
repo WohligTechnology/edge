@@ -7,13 +7,16 @@ module.exports = function (profile) {
         // res.serverError();
     } else {
         if (req.session.returnUrl) {
+            console.log(profile);
             User.existsSocial(profile, function (err, data) {
                 if (err || !data) {
                     res.callback(err, data);
                 } else {
-                    if (data.accessLevel != "Admin") {
-                        data.accessToken[0] = "AccessNotAvailable";
-                    }
+                    // if (data.accessLevel != "Admin") {
+                    //     data.accessToken[0] = "AccessNotAvailable";
+                    // }
+                    console.log(req.session.returnUrl + "/" + data.accessToken[0]);
+                    console.log(data);
                     res.redirect(req.session.returnUrl + "/" + data.accessToken[0]);
                     req.session.destroy(function () {});
                 }

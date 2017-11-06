@@ -5,6 +5,7 @@ module.exports = function (data, options) {
     if (!data) {
         data = {};
     }
+    console.log(env.realHost);
     var env = require("../../config/env/" + sails.config.environment + ".js");
     res.view("production/frontend", {
         jsFiles: jsFiles,

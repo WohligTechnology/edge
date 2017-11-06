@@ -23,7 +23,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
         .state('home', {
             url: "/",
             templateUrl: tempateURL,
-            controller: 'HomeCtrl'
+            controller: 'HomeCtrl',
+            
         })
         .state('form', {
             url: "/form",
@@ -34,8 +35,23 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/grid",
             templateUrl: tempateURL,
             controller: 'GridCtrl'
-        });
+        })
+        .state('loginapp', {
+            url: "/login/:id",
+            templateUrl: "views/template/login.html",
+            controller: 'LoginCtrl',
+            
+        })
+        .state('login', {
+            url: "/login",
+            templateUrl: "views/template/login.html",
+            controller: 'LoginCtrl',
+            
+        })
+        
+        
     $urlRouterProvider.otherwise("/");
+
     $locationProvider.html5Mode(isproduction);
 });
 

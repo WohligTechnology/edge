@@ -1,10 +1,12 @@
 var mySwiper;
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $stateParams) {
     $scope.template = TemplateService.getHTML("content/home.html");
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
     $scope.companyView = true;
     $scope.company = [];
+    console.log($stateParams);
+    console.log($state.current.name);
     $scope.category = function () {
         NavigationService.callApiWithData('Category/search', {}, function (data) {
             var category = [];
@@ -146,9 +148,16 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             };
             // console.log($scope.errormessage);
         } else {
+            var  userId = '';
+               var profile    =  $.jStorage.get("profile");
+               if(profile){
+                   userId  = profile._id
+               }
+               if(userId){
             NavigationService.callApiWithData('VoteLog/AddVoteLog', {
                 category: $scope.categoryId,
                 company: $scope.companyId,
+                userId : userId
             }, function (data) {
                 // console.log(data);
                 $("<a>").attr("href", $scope.facebookurl).attr("target", "_blank")[0].click();
@@ -161,6 +170,11 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 });
 
             });
+        }else{
+            $scope.errormessage = {
+                name: "Please log in first"
+            };
+        }
         }
     }
 

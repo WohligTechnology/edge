@@ -3,9 +3,24 @@ var controller = {
     getTushar: function () {
         // Every thing is awesome
     },
-    loginFacebook: function (req, res) {
+       loginFacebook: function (req, res) {
+        if (req.query.returnUrl) {
+            req.session.returnUrl = req.query.returnUrl;
+        }
         passport.authenticate('facebook', {
             scope: ['public_profile', 'user_friends', 'email'],
+            failureRedirect: '/'
+        }, res.socialLogin)(req, res);
+    },
+    loginTwitter: function (req, res) {
+        if (req.query.returnUrl) {
+            req.session.returnUrl = req.query.returnUrl;
+        } else {
+
+        }
+
+        passport.authenticate('twitter', {
+            scope: ['openid', 'profile', 'email'],
             failureRedirect: '/'
         }, res.socialLogin)(req, res);
     },

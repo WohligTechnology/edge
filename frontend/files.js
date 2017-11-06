@@ -1,5 +1,6 @@
 module.exports = [
   //JS & jQuery Libs
+  
   'bower_components/jquery/dist/jquery.min.js',
   'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
   'bower_components/flexslider/jquery.flexslider-min.js',
@@ -8,7 +9,8 @@ module.exports = [
   "bower_components/moment/min/moment.min.js",
   "bower_components/swiper/dist/js/swiper.jquery.js",
   "bower_components/selectize/dist/js/standalone/selectize.min.js",
-
+  'bower_components/jStorage/jstorage.js',
+  ///home/wohlig/Downloads/Edge-project/edge/bower_components/jStorage/jstorage.min.js
   //Angular Libs
   'bower_components/angular/angular.js',
   'bower_components/angular-sanitize/angular-sanitize.js',
