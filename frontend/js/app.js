@@ -36,17 +36,11 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             templateUrl: tempateURL,
             controller: 'GridCtrl'
         })
-        .state('loginapp', {
-            url: "/login/:id",
-            templateUrl: "views/template/login.html",
-            controller: 'LoginCtrl',
-            
-        })
+        
         .state('login', {
             url: "/login",
-            templateUrl: "views/template/login.html",
+            templateUrl: tempateURL,
             controller: 'LoginCtrl',
-            
         })
         
         

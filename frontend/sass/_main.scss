@@ -74,10 +74,13 @@ footer {
 .btn-block {
     display: block;
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     padding: 8px 20px;
     font-size: 18px;
     letter-spacing: 2px;
+    i{
+        margin-right: 10px;
+    }
 }
 
 .form-control:focus {
@@ -306,10 +309,12 @@ p {
 .nomination {
     padding-top: 80px;
 }
+
 .nomination-content {
     padding-right: 20px;
     padding-bottom: 20px;
 }
+
 .category,
 .about,
 .category-content,
@@ -532,10 +537,31 @@ p {
     right: 90px;
     top: 5%;
 }
-.left-title{
+
+.left-title {
     width: 380px;
 }
 
-.min-hght-80{
+.min-hght-80 {
     min-height: 65vh;
+}
+
+//login
+.contact-sec {
+    border: 1px solid #ddd;
+    padding: 20px 20px 30px 20px;
+    box-shadow: 1px 0px 2px #ddd;
+    margin-top: 100px;
+    h3 {
+        font-size: 26px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+}
+
+.logo{
+    margin: 40px 0;
+    a{
+        display: block;
+    }
 }

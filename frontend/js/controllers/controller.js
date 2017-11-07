@@ -19,11 +19,14 @@ myApp.controller('FormCtrl', function ($scope, TemplateService, NavigationServic
             });
         };
     })
+
     .controller('LoginCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr) {
         //Used to name the .html file
-      
-      
-        $scope.template = TemplateService;
+        $scope.template = TemplateService.getHTML("content/login.html");
+        TemplateService.title = "Login"; //This is the Title of the Website
+        TemplateService.header = ""; //This is the Title of the Website
+        TemplateService.footer = ""; //This is the Title of the Website
+        $scope.navigation = NavigationService.getNavigation();
         $scope.currentHost = window.location.origin;
         console.log($state.current.name);
         console.log('Inside controller',$stateParams.id);
