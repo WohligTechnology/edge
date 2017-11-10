@@ -10461,8 +10461,7 @@ p {
   border: 1px solid #ddd;
   padding: 20px 20px 30px 20px;
   -webkit-box-shadow: 1px 0px 2px #ddd;
-          box-shadow: 1px 0px 2px #ddd;
-  margin-top: 100px; }
+          box-shadow: 1px 0px 2px #ddd; }
   .contact-sec h3 {
     font-size: 26px;
     margin-top: 10px;
