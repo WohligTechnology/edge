@@ -22,7 +22,7 @@ myApp.controller('FormCtrl', function ($scope, TemplateService, NavigationServic
 
     .controller('LoginCtrl', function ($scope, TemplateService, NavigationService, $timeout, $stateParams, $state, toastr) {
         //Used to name the .html file
-        $scope.template = TemplateService.getHTML("content/login.html");
+        $scope.template = TemplateService.getHTML("content/home.html");
         TemplateService.title = "Login"; //This is the Title of the Website
         TemplateService.header = ""; //This is the Title of the Website
         TemplateService.footer = ""; //This is the Title of the Website
@@ -54,13 +54,13 @@ myApp.controller('FormCtrl', function ($scope, TemplateService, NavigationServic
         $scope.navigation = NavigationService.getNavigation();
     })
     .controller('AccessController', function ($scope, TemplateService, NavigationService, $timeout, $state) {
-        // console.log($.jStorage);
-        console.log($.jStorage.get("accessToken"));
-        if ($.jStorage.get("accessToken")) {
+        console.log($.jStorage);
+        // console.log($.jStorage.get("accessToken"));
+        // if ($.jStorage.get("accessToken")) {
             
-        } else {
-            $state.go("login");
-        }
+        // } else {
+        //     $state.go("login");
+        // }
     })
     // Example API Controller
     .controller('DemoAPICtrl', function ($scope, TemplateService, apiService, NavigationService, $timeout) {

@@ -30,12 +30,23 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             _id: categoryId
         }, function (data) {
             // console.log(data.data.data.description);
+            if ($.jStorage.get("accessToken")) {
             $scope.catDesc = data.data.data.description;
             // console.log(data.data.data.company);
             $scope.companyView = false;
             $scope.categoryId = categoryId;
             $scope.company = data.data.data.company;
             $scope.categoryName = data.data.data.name;
+        }else{
+            $scope.companyView = true;
+            $scope.currentHost = window.location.origin;
+            $uibModal.open({
+                animation: true,
+                templateUrl: 'views/content/login.html',
+                scope: $scope,
+                size: 'lg',
+            });
+        }   
             // console.log(">>>>>>");
             // console.log($scope.categoryName);
 
@@ -56,7 +67,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         NavigationService.callApiWithData('Category/getOne', {
             _id: categoryId
         }, function (data) {
-            $scope.companyView = false;
+          //  $scope.companyView = false;
             $scope.totalVoteCount = 0;
             $scope.companyvote = data.data.data.company;
             _.each($scope.companyvote, function (value) {
@@ -126,19 +137,20 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }, function (data) {
             // console.log(data.data.data.description);
             $scope.catDesc = data.data.data.description;
-            $scope.companyView = false;
+           // $scope.companyView = false;
 
         });
     }
     $scope.changeCompany = function (company) {
         // console.log(company.companyObj);
+       
         $scope.compDesc = company.description;
-        $scope.companyId = company._id;
+        $scope.companyId = company.companyObj._id;
         $scope.companyname = company.companyObj.name;
         // console.log($scope.companyname);
         $scope.facebookurl = "https://www.facebook.com/sharer/sharer.php?u=www.moneycontrol.com/rubique/&quote='I have voted for " + $scope.companyname + " company for the FintechEdge Awards. Every vote counts, vote now –www.moneycontrol.com/rubique/'";
         $scope.twitterurl = "http://www.twitter.com/share?url=http%3A%2F%2Fwww.moneycontrol.com%2Frubique%2F&text=I have voted for " + $scope.companyname + " company for the FintechEdge Awards. Every vote counts, vote now&hashtags=FintechEdgeAwards";
-      
+       
     }
     $scope.submitVote = function () {
         // console.log($scope.companyId)

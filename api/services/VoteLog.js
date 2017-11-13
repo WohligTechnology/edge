@@ -42,7 +42,7 @@ schema.plugin(uniqueValidator); schema.plugin(timestamps);
                 var Model = this;
                 var voteData = data.body;
                 voteData.userAgentDetails = JSON.stringify(data.headers);
-                console.log(data.headers);
+                //console.log(data.headers);
                 Model.saveData(voteData, function (err, data2) {
                     if (err) {
                         callback(err, data2);
@@ -53,13 +53,17 @@ schema.plugin(uniqueValidator); schema.plugin(timestamps);
                         }).exec(function (err, categoryData) {
                             //console.log(data);
                             _.each(categoryData.company, function (value) {
+                                console.log(value);
+                                console.log(data.body.company);
                                 if (value.companyObj == data.body.company) {
+                                    console.log(data.body.company);
+                                    console.log("MatchFound");
                                     value.voteCount = ++value.voteCount;
                                 }
                                 //console.log(value);
                             });
 
-                            console.log(categoryData);
+                            //  console.log(categoryData);
                             //   data.company.voteCount = ++data.company.voteCount;
                             categoryData.save(function (err, data) {
                                 callback(err, data);

@@ -1,6 +1,7 @@
 module.exports = _.cloneDeep(require("sails-wohlig-controller"));
 var controller = {
     getTushar: function () {
+        console.log("api called");
         // Every thing is awesome
     },
        loginFacebook: function (req, res) {

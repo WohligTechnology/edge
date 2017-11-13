@@ -23,7 +23,7 @@
 process.chdir(__dirname);
 global.mongoose = require('mongoose');
 global["Grid"] = require('gridfs-stream');
-global["database"] = "database";
+global["database"] = "VoteApp";
 
 mongoose.Promise = global.Promise;
 
