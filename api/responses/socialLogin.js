@@ -3,6 +3,7 @@ module.exports = function (profile) {
     var res = this.res;
     var sails = req._sails;
     if (_.isEmpty(profile)) {
+        console.log(profile);
         res.callback("Error fetching profile in Social Login", profile);
         // res.serverError();
     } else {
