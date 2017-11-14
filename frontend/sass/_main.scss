@@ -368,19 +368,16 @@ p {
     cursor: pointer; // border: 5px solid #fff;
     @include transition(all ease 300ms);
     .vote {
-        width: 90px;
-        height: 90px;
-        background: $brand-primary;
-        border-radius: 50%;
-        border: 5px solid #fff;
-        line-height: 110%;
-        padding-top: 19px;
-        margin: 10px auto;
+            width: 140px;
+            margin: 10px auto;
+            @include transition(all ease 300ms);
         &:hover {
-            opacity: 0.85;
-            @include transform(scale(0.95));
+            opacity: 0.98;
+            @include transform(scale(0.98));
         }
-        @include transition(all ease 300ms);
+        img{
+            width: 100%;
+        }
     }
     .knowmore {
         a {
