@@ -10317,24 +10317,20 @@ p {
   -o-transition: all ease 300ms;
   transition: all ease 300ms; }
   .scroll-top .vote {
-    width: 90px;
-    height: 90px;
-    background: #2372ba;
-    border-radius: 50%;
-    border: 5px solid #fff;
-    line-height: 110%;
-    padding-top: 19px;
+    width: 140px;
     margin: 10px auto;
     -webkit-transition: all ease 300ms;
     -o-transition: all ease 300ms;
     transition: all ease 300ms; }
     .scroll-top .vote:hover {
-      opacity: 0.85;
-      -webkit-transform: scale(0.95);
-      -moz-transform: scale(0.95);
-      -ms-transform: scale(0.95);
-      -o-transform: scale(0.95);
-      transform: scale(0.95); }
+      opacity: 0.98;
+      -webkit-transform: scale(0.98);
+      -moz-transform: scale(0.98);
+      -ms-transform: scale(0.98);
+      -o-transform: scale(0.98);
+      transform: scale(0.98); }
+    .scroll-top .vote img {
+      width: 100%; }
   .scroll-top .knowmore a {
     color: #fff;
     margin: 4px;
