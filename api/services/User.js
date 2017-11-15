@@ -69,7 +69,8 @@ var schema = new Schema({
         type: String,
         default: "User",
         enum: ['User', 'Admin']
-    }
+    },
+    loginProvider:String
 });
 
 schema.plugin(deepPopulate, {
@@ -110,6 +111,7 @@ var model = {
                                 name: user.displayName,
                                 email: userEmail,
                                 accessToken: [uid(16)],
+                                loginProvider:user.provider,
                                 oauthLogin: [{
                                     socialId: user.id,
                                     socialProvider: user.provider,
@@ -136,6 +138,7 @@ var model = {
                           }else{
                               console.log(userData.oauthLogin);
                             userData.oauthLogin.push({socialId:user.id, socialProvider: user.provider});
+                            userData.loginProvider = user.provider;
                             userData.socialAccessToken = user.AccessToken;
                             userData.socialRefreshToken = user.RefreshToken;
                             userData.save(function(err, savedData){
@@ -156,6 +159,7 @@ var model = {
                 delete data.otp;
 
                 console.log(" ============ user.googleAccessToken",user.AccessToken);
+                data.loginProvider = user.provider;
                 data.socialAccessToken = user.AccessToken;
                 data.save(function () {});
                 callback(err, data);
@@ -163,7 +167,7 @@ var model = {
         });
     },
     profile: function (data, callback, getGoogle) {
-        var str = "name email photo mobile accessLevel";
+        var str = "name email photo mobile accessLevel loginProvider";
         if (getGoogle) {
             str += " googleAccessToken googleRefreshToken";
         }

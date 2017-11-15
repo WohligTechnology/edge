@@ -1,5 +1,5 @@
 var mySwiper;
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $stateParams) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $stateParams,$window) {
     $scope.template = TemplateService.getHTML("content/home.html");
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
@@ -128,6 +128,19 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             });
         }, 600);
     }
+    
+    $scope.displayLogout = function(){
+        if(_.isEmpty($.jStorage.get("profile"))){
+             return false;
+        }else{
+            return true;
+        }
+    }
+
+    $scope.logout = function(){
+        $.jStorage.flush();
+        $window.location.reload();
+    } 
 
     $scope.getCompanyDescription = function (categoryId) {
         // console.log(categoryId);
@@ -172,6 +185,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 userId : userId
             }, function (data) {
                 // console.log(data);
+                if($.jStorage.get("profile").loginProvider == 'facebook'){
                 $("<a>").attr("href", $scope.facebookurl).attr("target", "_blank")[0].click();
                 // console.log($scope.companyname);
                   $uibModal.open({
@@ -180,7 +194,16 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                     scope: $scope,
                     size: 'lg',
                 });
-
+            }else if($.jStorage.get("profile").loginProvider == 'twitter'){
+                $("<a>").attr("href", $scope.twitterurl).attr("target", "_blank")[0].click();
+                // console.log($scope.companyname);
+                  $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/modal/success.html',
+                    scope: $scope,
+                    size: 'lg',
+                });
+            }
             });
         }else{
             $scope.errormessage = {
