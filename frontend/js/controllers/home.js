@@ -1,5 +1,5 @@
 var mySwiper;
-myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $stateParams,$window) {
+myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationService, $timeout, $uibModal, $state, $stateParams, $window) {
     $scope.template = TemplateService.getHTML("content/home.html");
     TemplateService.title = "Home"; //This is the Title of the Website
     $scope.navigation = NavigationService.getNavigation();
@@ -31,22 +31,22 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }, function (data) {
             // console.log(data.data.data.description);
             if ($.jStorage.get("accessToken")) {
-            $scope.catDesc = data.data.data.description;
-            // console.log(data.data.data.company);
-            $scope.companyView = false;
-            $scope.categoryId = categoryId;
-            $scope.company = data.data.data.company;
-            $scope.categoryName = data.data.data.name;
-        }else{
-            $scope.companyView = true;
-            $scope.currentHost = window.location.origin;
-            $uibModal.open({
-                animation: true,
-                templateUrl: 'views/content/login.html',
-                scope: $scope,
-                size: 'lg',
-            });
-        }   
+                $scope.catDesc = data.data.data.description;
+                // console.log(data.data.data.company);
+                $scope.companyView = false;
+                $scope.categoryId = categoryId;
+                $scope.company = data.data.data.company;
+                $scope.categoryName = data.data.data.name;
+            } else {
+                $scope.companyView = true;
+                $scope.currentHost = window.location.origin;
+                $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/content/login.html',
+                    scope: $scope,
+                    size: 'lg',
+                });
+            }
             // console.log(">>>>>>");
             // console.log($scope.categoryName);
 
@@ -60,6 +60,18 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             }, 'slow');
         }, 1000);
     };
+
+    $timeout(function () {
+    $(window).scroll(function() {    
+        $(".scroll-top").css("display", "block");
+        console.log($(window).scrollTop());
+        console.log($(document).height() - $(window).scrollTop());
+        var scroll = $(window).scrollTop();    
+        if (scroll >= $(document).height() - $(window).height()) {
+            $(".scroll-top").css("display", "none");
+        }
+    }
+)}, 300);
     $scope.scrollData();
     $scope.companyvote = [];
     $scope.getCompanyData = function (categoryId) {
@@ -67,7 +79,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         NavigationService.callApiWithData('Category/getOne', {
             _id: categoryId
         }, function (data) {
-          //  $scope.companyView = false;
+            //  $scope.companyView = false;
             $scope.totalVoteCount = 0;
             $scope.companyvote = data.data.data.company;
             _.each($scope.companyvote, function (value) {
@@ -128,19 +140,19 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             });
         }, 600);
     }
-    
-    $scope.displayLogout = function(){
-        if(_.isEmpty($.jStorage.get("profile"))){
-             return false;
-        }else{
+
+    $scope.displayLogout = function () {
+        if (_.isEmpty($.jStorage.get("profile"))) {
+            return false;
+        } else {
             return true;
         }
     }
 
-    $scope.logout = function(){
+    $scope.logout = function () {
         $.jStorage.flush();
         $window.location.reload();
-    } 
+    }
 
     $scope.getCompanyDescription = function (categoryId) {
         // console.log(categoryId);
@@ -150,13 +162,13 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }, function (data) {
             // console.log(data.data.data.description);
             $scope.catDesc = data.data.data.description;
-           // $scope.companyView = false;
+            // $scope.companyView = false;
 
         });
     }
     $scope.changeCompany = function (company) {
         // console.log(company.companyObj);
-       
+
         $scope.compDesc = company.description;
         $scope.companyId = company.companyObj._id;
         $scope.companyname = company.companyObj.name;
@@ -173,60 +185,60 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             };
             // console.log($scope.errormessage);
         } else {
-            var  userId = '';
-               var profile    =  $.jStorage.get("profile");
-               if(profile){
-                   userId  = profile._id
-               }
-               if(userId){
-            NavigationService.callApiWithData('VoteLog/AddVoteLog', {
-                category: $scope.categoryId,
-                company: $scope.companyId,
-                userId : userId
-            }, function (data) {
-                // console.log(data);
-                if($.jStorage.get("profile").loginProvider == 'facebook'){
-                $("<a>").attr("href", $scope.facebookurl).attr("target", "_blank")[0].click();
-                // console.log($scope.companyname);
-                  $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/success.html',
-                    scope: $scope,
-                    size: 'lg',
-                });
-            }else if($.jStorage.get("profile").loginProvider == 'twitter'){
-                $("<a>").attr("href", $scope.twitterurl).attr("target", "_blank")[0].click();
-                // console.log($scope.companyname);
-                  $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/success.html',
-                    scope: $scope,
-                    size: 'lg',
-                });
-            }else if($.jStorage.get("profile").loginProvider == 'linkedin'){
-                console.log($scope.linkedInurl);
-                $("<a>").attr("href", $scope.linkedInurl).attr("target", "_blank")[0].click();
-                // console.log($scope.companyname);
-                  $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/success.html',
-                    scope: $scope,
-                    size: 'lg',
-                });
-            }else{
-                $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/modal/success.html',
-                    scope: $scope,
-                    size: 'lg',
-                });
+            var userId = '';
+            var profile = $.jStorage.get("profile");
+            if (profile) {
+                userId = profile._id
             }
-            });
-        }else{
-            $scope.errormessage = {
-                name: "Please log in first"
-            };
-        }
+            if (userId) {
+                NavigationService.callApiWithData('VoteLog/AddVoteLog', {
+                    category: $scope.categoryId,
+                    company: $scope.companyId,
+                    userId: userId
+                }, function (data) {
+                    // console.log(data);
+                    if ($.jStorage.get("profile").loginProvider == 'facebook') {
+                        $("<a>").attr("href", $scope.facebookurl).attr("target", "_blank")[0].click();
+                        // console.log($scope.companyname);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/success.html',
+                            scope: $scope,
+                            size: 'lg',
+                        });
+                    } else if ($.jStorage.get("profile").loginProvider == 'twitter') {
+                        $("<a>").attr("href", $scope.twitterurl).attr("target", "_blank")[0].click();
+                        // console.log($scope.companyname);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/success.html',
+                            scope: $scope,
+                            size: 'lg',
+                        });
+                    } else if ($.jStorage.get("profile").loginProvider == 'linkedin') {
+                        console.log($scope.linkedInurl);
+                        $("<a>").attr("href", $scope.linkedInurl).attr("target", "_blank")[0].click();
+                        // console.log($scope.companyname);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/success.html',
+                            scope: $scope,
+                            size: 'lg',
+                        });
+                    } else {
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modal/success.html',
+                            scope: $scope,
+                            size: 'lg',
+                        });
+                    }
+                });
+            } else {
+                $scope.errormessage = {
+                    name: "Please log in first"
+                };
+            }
         }
     }
 
