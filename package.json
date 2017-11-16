@@ -52,6 +52,8 @@
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "passport-google-auth": "^1.0.2",
+   
+    "passport-linkedin": "^1.0.0",
     "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
     "postcss-cli": "^4.1.1",
@@ -82,5 +84,6 @@
     "grunt-ejs-locals": "^0.1.1",
     "grunt-http": "^2.2.0",
     "grunt-postcss": "^0.8.0"
+  
   }
 }

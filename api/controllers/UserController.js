@@ -25,6 +25,18 @@ var controller = {
             failureRedirect: '/'
         }, res.socialLogin)(req, res);
     },
+    loginLinkedIn: function (req, res) {
+        if (req.query.returnUrl) {
+            req.session.returnUrl = req.query.returnUrl;
+        } else {
+
+        }
+
+        passport.authenticate('linkedin', {
+            scope: ['r_basicprofile', 'r_emailaddress'],
+            failureRedirect: '/'
+        }, res.socialLogin)(req, res);
+    },
 
     loginGoogle: function (req, res) {
         if (req.query.returnUrl) {
