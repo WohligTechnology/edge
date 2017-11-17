@@ -65,7 +65,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $(window).scroll(function() {    
         $(".scroll-top").css("display", "block");
         var scroll = $(window).scrollTop();    
-        if (scroll >= $(document).height() - ($(window).height() + 300)) {
+        if (scroll >= $(document).height() - ($(window).height() + 600)) {
             $(".scroll-top").css("display", "none");
         }
     }
