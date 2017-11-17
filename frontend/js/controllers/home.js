@@ -64,10 +64,8 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $timeout(function () {
     $(window).scroll(function() {    
         $(".scroll-top").css("display", "block");
-        console.log($(window).scrollTop());
-        console.log($(document).height() - $(window).scrollTop());
         var scroll = $(window).scrollTop();    
-        if (scroll >= $(document).height() - $(window).height()) {
+        if (scroll >= $(document).height() - ($(window).height() + 300)) {
             $(".scroll-top").css("display", "none");
         }
     }
@@ -173,8 +171,8 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         $scope.companyId = company.companyObj._id;
         $scope.companyname = company.companyObj.name;
         // console.log($scope.companyname);
-        $scope.facebookurl = "https://www.facebook.com/sharer/sharer.php?u=www.moneycontrol.com/rubique/&quote='I have voted for " + $scope.companyname + " company for the FintechEdge Awards. Every vote counts, vote now –www.moneycontrol.com/rubique/'";
-        $scope.twitterurl = "http://www.twitter.com/share?url=http%3A%2F%2Fwww.moneycontrol.com%2Frubique%2F&text=I have voted for " + $scope.companyname + " company for the FintechEdge Awards. Every vote counts, vote now&hashtags=FintechEdgeAwards";
+        $scope.facebookurl = "https://www.facebook.com/sharer/sharer.php?u=www.moneycontrol.com/rubique/&quote='I have voted for " + $scope.companyname + " company for the Fintech Edge Awards. Every vote counts, vote now –www.moneycontrol.com/rubique/'";
+        $scope.twitterurl = "http://www.twitter.com/share?url=http%3A%2F%2Fwww.moneycontrol.com%2Frubique%2F&text=I have voted for " + $scope.companyname + " company for the Fintech Edge Awards. Every vote counts, vote now&hashtags=FintechEdgeAwards";
         $scope.linkedInurl = "http://www.linkedin.com/shareArticle?mini=true&amp;url=www.moneycontrol.com/rubique/";
     }
     $scope.submitVote = function () {
@@ -199,7 +197,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                     // console.log(data);
                     if ($.jStorage.get("profile").loginProvider == 'facebook') {
                         $("<a>").attr("href", $scope.facebookurl).attr("target", "_blank")[0].click();
-                        // console.log($scope.companyname);
                         $uibModal.open({
                             animation: true,
                             templateUrl: 'views/modal/success.html',
@@ -208,7 +205,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                         });
                     } else if ($.jStorage.get("profile").loginProvider == 'twitter') {
                         $("<a>").attr("href", $scope.twitterurl).attr("target", "_blank")[0].click();
-                        // console.log($scope.companyname);
                         $uibModal.open({
                             animation: true,
                             templateUrl: 'views/modal/success.html',
@@ -218,7 +214,6 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                     } else if ($.jStorage.get("profile").loginProvider == 'linkedin') {
                         console.log($scope.linkedInurl);
                         $("<a>").attr("href", $scope.linkedInurl).attr("target", "_blank")[0].click();
-                        // console.log($scope.companyname);
                         $uibModal.open({
                             animation: true,
                             templateUrl: 'views/modal/success.html',
