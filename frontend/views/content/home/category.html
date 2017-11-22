@@ -1,9 +1,9 @@
 <!-- <h1>four</h1> -->
 <!-- section one category page -->
 <section class="category bg-grey">
-    <div class="min-hght rel ">
-        <div class="container-fluid">
-            <div class="col-md-4 col-sm-4 visible-xs">
+    <div class="min-hght rel">
+        <div class="container-fluid remove-pad">
+            <!-- <div class="col-md-8 col-sm-8 visible-xs">
                 <div class="title rel text-uppercase text-center">
                     <div class="large-character color-white">
                         C
@@ -12,15 +12,17 @@
                         Category
                     </div>
                 </div>
+            </div> -->
+            <div class="col-md-4 col-sm-4 remove-pad">
+                    <div class="sidenav">
+                            <a ng-repeat="myslide in category track by $index">
+                                <div class="category-title" ng-click="getCompany(myslide._id);" ng-model="myslide._id" ng-mouseover="getCompanyDescription(myslide._id)">
+                                    <h4>{{myslide.name}}</h4>
+                                </div>
+                            </a>
+                        </div>
             </div>
             <div class="col-md-8 col-sm-8">
-                <div class="category-content">
-                    <p class="text-justify" ng-model="catDesc">
-                        {{catDesc}}
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-4 hidden-xs">
                 <div class="pull-right">
                     <div class="title rel text-uppercase text-center">
                         <div class="large-character color-white">
@@ -31,23 +33,39 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="get-center-content">
-            <div class="full-width">
-                <div class="container">
-                    <div class="mb15">
-                        <div class="row">
-                            <div class="col-md-3 col-sm-4" ng-repeat="myslide in category track by $index">
-                                <div class="category-title" ng-click="getCompany(myslide._id);scrollNomination()" ng-model="myslide._id" ng-mouseover="getCompanyDescription(myslide._id)">
-                                    <h4 class="text-center">{{myslide.name}}</h4>
+
+                <section ng-hide="companyView">
+                        <div class="login-div">
+                                <div class="login-text">
+                                    Please Select Category To Proceed
                                 </div>
-                            </div>
                         </div>
+                    </section>
+                
                     </div>
+                </section>
+            </div>
+
+        <div class="login-div">
+                <div class="login-text">
+                    Please Login To Cast Your Vote
+                </div>
+                <div class="login-btn">
+                        <a class="btn  btn-info btn-icon" ng-href="http://edge.wohlig.co.in/api/User/loginFacebook?returnUrl=http://localhost:8080/%23!/login" target="_blank" href="http://edge.wohlig.co.in/api/User/loginFacebook?returnUrl=http://localhost:8080/%23!/login">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a class="btn btn-icon btn-primary" ng-href="http://edge.wohlig.co.in/api/User/loginTwitter?returnUrl=http://localhost:8080/%23!/login" target="_blank" href="http://edge.wohlig.co.in/api/User/loginTwitter?returnUrl=http://localhost:8080/%23!/login">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a class="btn btn-info btn-icon" ng-href="http://edge.wohlig.co.in/api/User/loginLinkedIn?returnUrl=http://localhost:8080/%23!/login" target="_blank" href="http://edge.wohlig.co.in/api/User/loginLinkedIn?returnUrl=http://localhost:8080/%23!/login">
+                            <i class="fa fa-linkedin-square"></i>
+                        </a>
+                        <a class="btn btn-danger btn-icon" ng-href="http://edge.wohlig.co.in/api/User/loginGoogle?returnUrl=http://localhost:8080/%23!/login" target="_blank" href="http://edge.wohlig.co.in/api/User/loginGoogle?returnUrl=http://localhost:8080/%23!/login">
+                            <i class="fa fa-google"></i>
+                        </a>
                 </div>
             </div>
         </div>
+        
+        
 
-    </div>
-</section>

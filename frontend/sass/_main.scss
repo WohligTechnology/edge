@@ -53,7 +53,7 @@ a,
 
 footer {
     font-size: 12px;
-    background-color: #eee;
+    // background-color: #eee;
     padding: 15px 0;
     p {
         margin: 0;
@@ -245,7 +245,7 @@ p {
 }
 
 .about-content {
-    padding: 20vh 20px;
+    padding: 10vh 20px;
     line-height: 130%;
 }
 
@@ -315,8 +315,8 @@ p {
     padding-bottom: 20px;
 }
 
-.category,
-.about,
+// .category,
+// .about,
 .category-content,
 .partner-content,
 .partners,
@@ -326,6 +326,7 @@ p {
 }
 
 .category {
+    position: relative;
     .swiper-slide {
         background: transparent;
         img {
@@ -368,8 +369,9 @@ p {
     cursor: pointer; // border: 5px solid #fff;
     @include transition(all ease 300ms);
     .vote {
-            width: 140px;
-            margin: 10px auto;
+            width: 70px;
+            // margin: 10px auto;
+            margin-bottom: 55px;
             @include transition(all ease 300ms);
         &:hover {
             opacity: 0.98;
@@ -415,7 +417,6 @@ p {
 }
 
 .category-title {
-    height: 130px;
     background: $brand-primary;
     color: #fff;
     display: -webkit-box;
@@ -424,14 +425,13 @@ p {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    margin-bottom: 15px;
-    padding: 5px;
     letter-spacing: 1px;
-    border: 5px solid $brand-success;
+    
     cursor: pointer;
     @include transition(all ease 300ms);
     overflow: hidden;
     h4 {
+        margin: 21px 0;
         width: 100%;
         font-family: 'AvenirLTStd-Medium';
         -webkit-font-smoothing: antialiased;
@@ -444,6 +444,10 @@ p {
         color: darken(#fff, 10%);
     }
 }
+
+.sidenav a + a {
+    border-top: 1px solid $brand-success;
+  }
 
 .sub-title {
     h4 {
@@ -532,7 +536,7 @@ p {
     margin-top: -50px;
     position: absolute;
     right: 90px;
-    top: 5%;
+    top: 25%;
 }
 
 .left-title {
@@ -564,4 +568,63 @@ p {
 .logout{
     padding: 5px 0;
     cursor: pointer;
+}
+.div-maximum{
+    max-height: 70px;
+}
+.footer-content{
+    padding: 50px 10px;
+}
+.remove-pad{
+    padding-left: 0px;
+}
+.sidenav {
+    border-top: solid 1px #ececec;
+    border-bottom: solid 1px #ececec;
+    // position: absolute;
+    height: 100vh;
+    width: 400px;
+    z-index: 1;
+    background-color: #2372ba;
+    // overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    margin: 0 30px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.mobile-top{
+    text-align: justify;
+}
+
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+}
+.login-div{
+    text-align: center;
+    .login-text{
+        font-size: 30px;
+    }
+    .login-btn{
+margin: 20px;
+// button{
+//     width: 150px;
+//     letter-spacing: 5px;
+//     font-size: 22px;
+// }
+a{
+    font-size: 30px;
+    margin: 10px 10px;
+    padding: 5px 15px;
+}
+    }
 }
