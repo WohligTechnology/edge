@@ -11,6 +11,11 @@ $brand-grey:#ececec;
 /* Bootstrap Variables Goes Here */
 
 @import "other/font-fix";
+html,
+body {
+    height: 100%;
+}
+
 body {
     // padding-top: 70px;
     font-family: 'AvenirLTStd-Medium';
@@ -18,6 +23,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: #000000;
     letter-spacing: 1.2px;
+    overflow-x: hidden;
 }
 
 img.loading {
@@ -52,8 +58,7 @@ a,
 }
 
 footer {
-    font-size: 12px;
-    // background-color: #eee;
+    font-size: 12px; // background-color: #eee;
     padding: 15px 0;
     p {
         margin: 0;
@@ -78,7 +83,7 @@ footer {
     padding: 8px 20px;
     font-size: 18px;
     letter-spacing: 2px;
-    i{
+    i {
         margin-right: 10px;
     }
 }
@@ -106,6 +111,55 @@ footer {
 
 .form-submission {
     min-height: 300px;
+}
+
+//Global classes
+.d-flex {
+    @include display(flex);
+}
+
+.justify-content-start {
+    @include justify-content(flex-start);
+}
+
+.justify-content-center {
+    @include justify-content(center);
+}
+
+.justify-content-end {
+    @include justify-content(flex-end);
+}
+
+.align-item-start {
+    @include align-items(flex-start);
+}
+
+.align-item-center {
+    @include align-items(center);
+}
+
+.align-item-end {
+    @include align-items(flex-end);
+}
+
+.scroll-bar {
+     ::-webkit-scrollbar {
+        width: 5px;
+    }
+     ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+     ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: blue;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+     ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(255, 0, 0, 0.4);
+    }
 }
 
 //FLEX SLIDER FIXES
@@ -202,8 +256,8 @@ header {
 }
 
 .get-center-content {
-    @include display(flex);
-    align-items: center;
+    // @include display(flex);
+    // align-items: center;
 }
 
 .full-width {
@@ -305,9 +359,20 @@ p {
 }
 
 //category
-.nomination-content,
-.nomination {
-    padding-top: 80px;
+// .nomination-content,
+// .nomination {
+//     padding-top: 80px;
+// }
+.nomination-selection {
+    @include display(flex);
+    @include flex-direction(row);
+    @include justify-content(flex-start);
+    @include flex-wrap(wrap);
+}
+
+.nomination-selection-item {
+    width: 30%;
+    margin-right: 15px;
 }
 
 .nomination-content {
@@ -317,12 +382,21 @@ p {
 
 // .category,
 // .about,
+.catActive {
+    background-color: #5a9b35!important;
+    border-color: #4b802c!important;
+}
+
 .category-content,
 .partner-content,
 .partners,
 .leader-board,
 {
     padding-top: 50px;
+}
+
+.category-box {
+    width: 230px;
 }
 
 .category {
@@ -369,15 +443,14 @@ p {
     cursor: pointer; // border: 5px solid #fff;
     @include transition(all ease 300ms);
     .vote {
-            width: 70px;
-            // margin: 10px auto;
-            margin-bottom: 55px;
-            @include transition(all ease 300ms);
+        width: 70px; // margin: 10px auto;
+        margin-bottom: 55px;
+        @include transition(all ease 300ms);
         &:hover {
             opacity: 0.98;
             @include transform(scale(0.98));
         }
-        img{
+        img {
             width: 100%;
         }
     }
@@ -394,39 +467,45 @@ p {
     }
 }
 
+.nomaination-text {
+    border-bottom: 2px solid #2372ba;
+    margin-bottom: 20px;
+}
+
 .nomination-title {
     background: $brand-grey;
+    cursor: pointer;
     padding: 5px;
-    height: 120px;
+    height: 80px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     align-items: center;
     margin-bottom: 15px;
     letter-spacing: 1px;
-    border: 5px solid $brand-primary;
+    background-color: #71bf44;
+    border: 5px solid #65ae3c;
     h5 {
         width: 100%;
         font-family: 'AvenirLTStd-Medium';
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        font-size: 16px;
-        color: #000;
+        font-size: 19px;
+        font-weight: bold;
+        color: white;
         text-transform: uppercase;
     }
 }
 
+.btn--submit {
+    font-size: 19px;
+}
+
 .category-title {
+    border-bottom: 1px solid $brand-success;
     background: $brand-primary;
     color: #fff;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
     letter-spacing: 1px;
-    
     cursor: pointer;
     @include transition(all ease 300ms);
     overflow: hidden;
@@ -438,16 +517,13 @@ p {
         -moz-osx-font-smoothing: grayscale;
         font-size: 16px;
         text-transform: uppercase;
+        line-height: 1.5;
     }
     &:hover {
         background: darken($brand-primary, 10%);
         color: darken(#fff, 10%);
     }
 }
-
-.sidenav a + a {
-    border-top: 1px solid $brand-success;
-  }
 
 .sub-title {
     h4 {
@@ -464,7 +540,6 @@ p {
 // .modal-content {
 //     background: $brand-grey;
 // }
-
 .success-modal {
     padding: 20px 20px 40px 20px;
     .img-holder {
@@ -559,72 +634,125 @@ p {
     }
 }
 
-.logo{
+.logo {
     margin: 40px 0;
-    a{
+    a {
         display: block;
     }
 }
-.logout{
+
+.logout {
     padding: 5px 0;
     cursor: pointer;
 }
-.div-maximum{
+
+.div-maximum {
     max-height: 70px;
 }
-.footer-content{
+
+.footer-content {
     padding: 50px 10px;
 }
-.remove-pad{
+
+.remove-pad {
     padding-left: 0px;
 }
+
 .sidenav {
     border-top: solid 1px #ececec;
-    border-bottom: solid 1px #ececec;
-    // position: absolute;
-    height: 100vh;
-    width: 400px;
+    border-bottom: solid 1px #ececec; // position: absolute;
+    height: 100vh; // width: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
     z-index: 1;
-    background-color: #2372ba;
-    // overflow-x: hidden;
+    background-color: #2372ba; // overflow-x: hidden;
     padding-top: 20px;
+     ::-webkit-scrollbar {
+        width: 5px;
+    }
+     ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    }
+     ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+        background: blue;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    }
+     ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(255, 0, 0, 0.4);
+    }
 }
 
 .sidenav a {
-    margin: 0 30px;
+    padding: 12px 30px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    position: relative;
+    font-size: 20px;
+    background: $brand-primary;
+    color: #fff; // color: #818181;
     display: block;
+    font-family: 'AvenirLTStd-Medium';
+    letter-spacing: 1px;
+    &:hover {
+        background: darken($brand-primary, 10%);
+        color: darken(#fff, 10%);
+    }
 }
 
-.sidenav a:hover {
-    color: #f1f1f1;
+.sideNavActive {
+    background: darken($brand-primary, 10%)!important;
+    color: darken(#fff, 10%)!important;
 }
 
-.mobile-top{
+.sidenav li:not(:first-child) a {
+    &:after {
+        content: '';
+        height: 2px;
+        background: $brand-success;
+        position: absolute;
+        right: 30px;
+        top: 0;
+        left: 30px;
+    }
+}
+
+// .sidenav a:hover {
+//     color: #f1f1f1;
+// }
+.mobile-top {
     text-align: justify;
 }
 
 .main {
-    margin-left: 200px; /* Same as the width of the sidenav */
+    margin-left: 200px;
+    /* Same as the width of the sidenav */
 }
-.login-div{
+
+.login-div {
     text-align: center;
-    .login-text{
+    .login-text {
         font-size: 30px;
     }
-    .login-btn{
-margin: 20px;
-// button{
-//     width: 150px;
-//     letter-spacing: 5px;
-//     font-size: 22px;
-// }
-a{
-    font-size: 30px;
-    margin: 10px 10px;
-    padding: 5px 15px;
-}
+    .login-btn {
+        margin: 20px; // button{
+        //     width: 150px;
+        //     letter-spacing: 5px;
+        //     font-size: 22px;
+        // }
+        a {
+            width: 100%;
+            height: 100%;
+            font-size: 30px; // margin: 10px 10px;
+            // padding: 5px 15px;
+        }
     }
+}
+
+.social-section>li {
+    @include size(60px,
+    60px);
+    @include margin(0 10px);
 }

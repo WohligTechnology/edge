@@ -26,6 +26,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.getCompany = function (categoryId) {
         // console.log(categoryId);
         $scope.company = [];
+        $scope.sideNavActiveMenu = categoryId;
         NavigationService.callApiWithData('Category/getOne', {
             _id: categoryId
         }, function (data) {
@@ -36,19 +37,21 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
                 $scope.companyView = false;
                 $scope.categoryId = categoryId;
                 $scope.company = data.data.data.company;
+                $scope.catActiveMenu = $scope.company[0]; // For active menu we need to set it to 1st
                 $scope.categoryName = data.data.data.name;
             } else {
                 $scope.companyView = true;
                 $scope.currentHost = window.location.origin;
-                $uibModal.open({
-                    animation: true,
-                    templateUrl: 'views/content/login.html',
-                    scope: $scope,
-                    size: 'lg',
-                });
+                // $uibModal.open({
+                //     animation: true,
+                //     templateUrl: 'views/content/login.html',
+                //     scope: $scope,
+                //     size: 'lg',
+                // });
             }
             // console.log(">>>>>>");
             // console.log($scope.categoryName);
+
 
         });
     };
@@ -61,15 +64,15 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
         }, 1000);
     };
 
-    $timeout(function () {
-    $(window).scroll(function() {    
-        $(".scroll-top").css("display", "block");
-        var scroll = $(window).scrollTop();    
-        if (scroll >= $(document).height() - ($(window).height() + 600)) {
-            $(".scroll-top").css("display", "none");
-        }
-    }
-)}, 300);
+    // $timeout(function () {
+    //     $(window).scroll(function () {
+    //         $(".scroll-top").css("display", "block");
+    //         var scroll = $(window).scrollTop();
+    //         if (scroll >= $(document).height() - ($(window).height() + 600)) {
+    //             $(".scroll-top").css("display", "none");
+    //         }
+    //     })
+    // }, 300);
     $scope.scrollData();
     $scope.companyvote = [];
     $scope.getCompanyData = function (categoryId) {
@@ -166,17 +169,17 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     }
     $scope.changeCompany = function (company) {
         // console.log(company.companyObj);
-
+        $scope.catActiveMenu = company;
         $scope.compDesc = company.description;
         $scope.companyId = company.companyObj._id;
         $scope.companyname = company.companyObj.name;
-        // console.log($scope.companyname);
+        console.log($scope.companyname);
         $scope.facebookurl = "https://www.facebook.com/sharer/sharer.php?u=www.moneycontrol.com/rubique/&quote='I have voted for " + $scope.companyname + " company for the Fintech Edge Awards. Every vote counts, vote now –www.moneycontrol.com/rubique/'";
         $scope.twitterurl = "http://www.twitter.com/share?url=http%3A%2F%2Fwww.moneycontrol.com%2Frubique%2F&text=I have voted for " + $scope.companyname + " company for the Fintech Edge Awards. Every vote counts, vote now&hashtags=FintechEdgeAwards";
         $scope.linkedInurl = "http://www.linkedin.com/shareArticle?mini=true&amp;url=www.moneycontrol.com/rubique/";
     }
     $scope.submitVote = function () {
-        // console.log($scope.companyId)
+        console.log($scope.companyId);
         if (!$scope.companyId) {
             $scope.errormessage = {
                 name: "Please select a option"
