@@ -1,6 +1,6 @@
 module.exports = [
   //JS & jQuery Libs
-  
+
   'bower_components/jquery/dist/jquery.min.js',
   'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
   'bower_components/flexslider/jquery.flexslider-min.js',
@@ -28,6 +28,8 @@ module.exports = [
   "bower_components/angular-toastr/dist/angular-toastr.tpls.js",
   "bower_components/angular-selectize2/dist/angular-selectize.js",
   "bower_components/angular-promise-buttons/dist/angular-promise-buttons.js",
+  "bower_components/angular-scroll/angular-scroll.js",
+
 
   //App.js
   'frontend/js/app.js',

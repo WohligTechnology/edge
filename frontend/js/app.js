@@ -4,6 +4,7 @@ var myApp = angular.module('myApp', [
     'pascalprecht.translate',
     'angulartics',
     'angulartics.google.analytics',
+    'duScroll',
     'ui.bootstrap',
     'ngAnimate',
     'ngSanitize',
@@ -24,7 +25,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             url: "/",
             templateUrl: tempateURL,
             controller: 'HomeCtrl',
-            
+
         })
         .state('form', {
             url: "/form",
@@ -37,18 +38,18 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locat
             controller: 'GridCtrl'
         })
         .state('loginapp', {
-              url: "/login/:id",
-                        templateUrl: tempateURL,
-                        controller: 'LoginCtrl',
-                        
-                    })
+            url: "/login/:id",
+            templateUrl: tempateURL,
+            controller: 'LoginCtrl',
+
+        })
         .state('login', {
             url: "/login",
             templateUrl: tempateURL,
             controller: 'LoginCtrl',
         })
-        
-        
+
+
     $urlRouterProvider.otherwise("/");
 
     $locationProvider.html5Mode(isproduction);
@@ -60,5 +61,3 @@ myApp.config(function ($translateProvider) {
     $translateProvider.translations('hi', LanguageHindi);
     $translateProvider.preferredLanguage('en');
 });
-
-    

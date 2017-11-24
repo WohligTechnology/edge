@@ -1,5 +1,14 @@
  @media (max-width: $screen-xs-max) {
      // Mobile
+     .mb-0 {
+         margin-bottom: 0
+     }
+     .mt-0 {
+         margin-top: 0;
+     }
+     .btn-font-14 {
+         font-size: 14px;
+     }
      .bg-main {
          background-position: 23% 0;
      }
@@ -14,17 +23,102 @@
      .mobile-height-auto {
          min-height: auto;
      }
-     .left-title{
-        width: 100%;
-        float: none !important;
+     .left-title {
+         width: 100%;
+         float: none !important;
      }
-     .mobile-top{
-        margin-top: 90px;
+     .mobile-top {
+         margin-top: 90px;
      }
      .scroll-top .vote {
-        width: 80px;
-        float: right;
-    }
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+         width: 80px;
+         float: right;
+     }
+     .category-content,
+     .partner-content,
+     .partners,
+     .leader-board,
+     .about {
+         padding-top: 25px
+     }
+     .sidenav {
+         padding-top: 15px;
+     }
+     .sidenav a {
+         font-size: 9px;
+         @include padding(10px 10px 10px 20px);
+     }
+     .sidenav li:not(:first-child) a {
+         &:after {
+             right: 0px;
+             left: 0px;
+         }
+     }
+     .category-box {
+         margin-top: 10px;
+     }
+     .large-character {
+         font-size: 6em;
+     }
+     .login-div {
+         .login-text {
+             font-size: 12px;
+         }
+         .login-btn a {
+             font-size: 18px
+         }
+     }
+     .text-title {
+         font-size: 1.4em;
+     }
+     .sub-title {
+         h4 {
+             font-size: 12px;
+         }
+     }
+     .social-section>li {
+         @include size(32px, 32px);
+         margin-right: 5px;
+         margin-left: 5px;
+     }
+     .nomination {
+         padding-right: 0px;
+         padding-bottom: 0px;
+         padding-left: 0px;
+     }
+     .nomaination-text {
+         font-size: 14px;
+     }
+     .nomination-selection-item {
+         width: 100%;
+         margin-right: 0;
+     }
+     .nomination-title {
+         height: 65px;
+         h5 {
+             font-size: 14px;
+         }
+     }
+     .btn--submit {
+         width: 100%;
+         display: block;
+     } //Start of leader section
+     .leader-board .min-hght {
+         min-height: auto;
+     }
+     .mobile-top {
+         margin-top: 0;
+     }
+     .min-hght-80 {
+         min-height: auto;
+     }
+     .custom-select {
+         select {
+             min-width: 323px;
+         }
+     } //End of leader section
+     //Start of about page
+     .about-content {
+         @include padding(10px 25px);
+     } //End of about page
  }

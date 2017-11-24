@@ -1,5 +1,5 @@
-<!-- <header hide-on-scroll>
-    <nav class="navbar navbar-default navbar-fixed-top">
+<header hide-on-scroll>
+    <nav class="navbar navbar-default ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-collapse" aria-expanded="false">
@@ -8,15 +8,21 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-                <a class="navbar-brand" ui-sref="home"><img src="/img/logo.png" alt="logo" width="20"> </a>
+                <!-- <a class="navbar-brand" ui-sref="home"><img src="/img/logo.png" alt="logo" width="20"> </a> -->
             </div>
             <div class="collapse navbar-collapse" id="nav-collapse">
-                <div ng-include="template.menu" class="template menu"></div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class=" text-uppercase"><a>Home</a></li>
+                    <li class="text-uppercase"><a du-smooth-scroll="pgOne" du-scrollspy>Category</a></li>
+                    <li class="text-uppercase"><a du-smooth-scroll="pgTwo" du-scrollspy>leader board</a></li>
+                    <li class="text-uppercase"><a du-smooth-scroll="pgThree" du-scrollspy>about</a></li>
+                </ul>
+                <!-- <div ng-include="template.menu" class="template menu"></div> -->
             </div>
         </div>
     </nav>
-</header> -->
-<div class="scroll-top pointer hide">
+</header>
+<div class="scroll-top pointer ">
     <!-- <div class="vote" ng-click="scrollTop();">
         <img src="img/vote-icon.png" alt="">
     </div> -->

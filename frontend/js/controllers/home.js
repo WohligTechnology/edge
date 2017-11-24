@@ -76,7 +76,8 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
     $scope.scrollData();
     $scope.companyvote = [];
     $scope.getCompanyData = function (categoryId) {
-        // console.log(categoryId);
+        $scope.sideNavActiveMenu = categoryId;
+        // console.log('catId', categoryId);
         NavigationService.callApiWithData('Category/getOne', {
             _id: categoryId
         }, function (data) {
@@ -89,6 +90,7 @@ myApp.controller('HomeCtrl', function ($scope, TemplateService, NavigationServic
             // console.log("$scope.totalVoteCount", $scope.totalVoteCount);
             $scope.categoryName = data.data.data.name;
         });
+
         $scope.mySwiperData();
     };
 

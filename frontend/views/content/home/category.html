@@ -14,7 +14,7 @@
                     </div>
                 </div>
             </div> -->
-                <div class="col-md-4 col-sm-4 remove-pad">
+                <div class="col-md-4 col-sm-4 col-xs-6 remove-pad">
                     <div class="sidenav">
                         <ul class="list-unstyled  text-uppercase">
                             <li ng-repeat="myslide in category track by $index"><a href="" ng-class="{sideNavActive: sideNavActiveMenu === myslide._id}" ng-click="getCompany(myslide._id);"
@@ -27,7 +27,7 @@
                         </a> -->
                     </div>
                 </div>
-                <div class="col-md-8 col-sm-8">
+                <div class="col-md-8 col-sm-8 col-xs-6">
                     <div class="d-flex justify-content-end">
                         <div class="title rel text-uppercase text-center category-box">
                             <div class="large-character color-white">
@@ -67,52 +67,48 @@
 
                             <div class="get-center-content">
                                 <div class="full-width">
+                                    <div class="sub-title hide box-white btn btn-default text-uppercase upper-title" ng-if="categoryName">
+                                        {{categoryName}} </div>
 
-                                    <div class="container-fluid">
+                                    <div ng-if="company.length > 0">
 
-                                        <div class="sub-title hide box-white btn btn-default text-uppercase upper-title" ng-if="categoryName">
-                                            {{categoryName}} </div>
+                                        <form name="companyVote">
 
-                                        <div ng-if="company.length > 0">
+                                            <div class="mb15 mb-0">
 
-                                            <form name="companyVote">
+                                                <h4 class="text-uppercase nomaination-text">nominations</h4>
+                                                <div class="nomination-selection">
+                                                    <div class="nomination-selection-item text-center" ng-repeat="companyvote in company track by $index">
 
-                                                <div class="mb15">
-                                                    <div class="container-fluid">
+                                                        <div class="mb15 mb-0">
 
+                                                            <div class="nomination-title" ng-class="{catActive: catActiveMenu === companyvote}" ng-click="changeCompany(companyvote)">
 
-                                                        <h4 class="text-uppercase nomaination-text">nominations</h4>
-                                                        <div class="nomination-selection">
-                                                            <div class="nomination-selection-item text-center" ng-repeat="companyvote in company track by $index">
+                                                                <h5>
+                                                                    {{companyvote.companyObj.name}} </h5>
+                                                            </div>
+                                                            <!-- <input type="radio" name="optradio" ng-click="changeCompany(companyvote)" required>                                                                    - </div> -->
 
-                                                                <div class="mb15">
-
-                                                                    <div class="nomination-title" ng-class="{catActive: catActiveMenu === companyvote}" ng-click="changeCompany(companyvote)">
-
-                                                                        <h5>
-                                                                            {{companyvote.companyObj.name}} </h5>
-                                                                    </div>
-                                                                    <!-- <input type="radio" name="optradio" ng-click="changeCompany(companyvote)" required>                                                                    - </div> -->
-
-                                                                    <!-- {{$index + 1}}  <figure>
+                                                            <!-- {{$index + 1}}  <figure>
                                                      <img ng-src="../img/ge.png" class="img-responsive iconBlue" alt="Edge" ng-click="getCompany(myslide._id)">
                                                 </figure> -->
-                                                                </div>
-                                                            </div>
-
                                                         </div>
                                                     </div>
 
-                                                    <div class="button-all text-center mt15 mb15">
-                                                        <button class="btn btn-primary btn-lg  btn--submit text-uppercase" ng-click="submitVote();" type="submit">
+                                                </div>
+
+
+                                                <div class="button-all text-center mt15 mb15 mt-0 mb-0">
+                                                    <button class="btn btn-primary btn-lg  btn--submit btn-font-14 text-uppercase" ng-click="submitVote();" type="submit">
                                                             Submit
                                                         </button>
-                                                    </div>
+                                                </div>
 
-                                                    <h4 class="color-primary">{{$scope.errormessage.name}}</h4>
-                                            </form>
-                                            </div>
+
+                                                <h4 class="color-primary hide">{{$scope.errormessage.name}}</h4>
+                                        </form>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -120,7 +116,7 @@
                     <div class="login-div" ng-if="!(displayLogout())">
                         <div class="login-text">
 
-                            Please Login To Cast Your Vote
+                            Connect to Cast your vote
                         </div>
                         <ul class="d-flex justify-content-center login-btn list-unstyled social-section">
                             <li> <a class="btn  btn-info btn-icon d-flex justify-content-center align-item-center" ng-href="http://edge.wohlig.co.in/api/User/loginFacebook?returnUrl=http://localhost:8080/%23!/login"

@@ -46,6 +46,32 @@ nav li:hover .dropdown-menu {
     display: block;
 }
 
+.navbar {
+    width: 100%;
+    border-radius: 0;
+    margin-bottom: 0;
+    position: absolute;
+    left: 0;
+    z-index: 1030; // As per fixed navigation bars
+}
+
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: white;
+    &:hover {
+        background-color: #0c3c67;
+        color: white;
+    }
+}
+
+// .navbar-default .navbar-nav>.active>a {
+//     background-color: #0c3c67;
+//     color: white;
+// }
 #map img {
     opacity: 1;
 }
@@ -140,6 +166,10 @@ footer {
 
 .align-item-end {
     @include align-items(flex-end);
+}
+
+.wd-100 {
+    width: 100%;
 }
 
 .scroll-bar {
@@ -301,6 +331,14 @@ p {
 .about-content {
     padding: 10vh 20px;
     line-height: 130%;
+    a {
+        color: white;
+        text-decoration: none;
+        word-break: break-word;
+        &:hover {
+            color: white;
+        }
+    }
 }
 
 .text-title {
@@ -353,8 +391,50 @@ p {
         margin: 0 auto 15px;
         position: relative;
         .bar-value {
-            @include background (linear-gradient($brand-primary, #fff));
+            // @include background (linear-gradient($brand-primary, #fff));
+            background: white;
         }
+    }
+}
+
+.leader-board {
+    .leader-category {
+        height: 100vh;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+        background: $brand-grey;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    li>a {
+        padding: 12px 30px;
+        text-decoration: none;
+        position: relative;
+        font-size: 18px;
+        background: $brand-grey;
+        color: black; // color: #818181;
+        display: block;
+        font-family: 'AvenirLTStd-Medium';
+        letter-spacing: 1px;
+        &:hover {
+            background: darken($brand-success, 10%);
+            color: darken(white, 10%);
+        }
+    }
+    li:not(:first-child) a {
+        &:after {
+            content: '';
+            height: 2px;
+            background: $brand-success;
+            position: absolute;
+            right: 0;
+            top: 0;
+            left: 0;
+        } // &:hover :after {
+        //     content: '';
+        //     height: 0;
+        // }
     }
 }
 
@@ -533,7 +613,9 @@ p {
 }
 
 .nomination {
+    padding-right: 15px;
     padding-bottom: 30px;
+    padding-left: 15px;
 }
 
 //modal success
@@ -690,7 +772,7 @@ p {
     padding: 12px 30px;
     text-decoration: none;
     position: relative;
-    font-size: 20px;
+    font-size: 18px;
     background: $brand-primary;
     color: #fff; // color: #818181;
     display: block;
