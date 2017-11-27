@@ -29,6 +29,9 @@
                         <button type="button" class="btn btn-success btn-lg btn-font-14">BEST INNOVATION</button>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+
                 <div class="col-md-12 col-xs-12 visible-xs">
                     <div class="mt15">
                         <div class="">
@@ -42,7 +45,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-offset-4 col-sm-offset-4 col-md-5 col-sm-6 col-xs-12">
+            </div>
+            <div class="row">
+                <div class="col-md-offset-1 col-sm-offset-0 col-md-7 col-sm-7 col-xs-12">
                     <div class="sub-title" ng-if="companyvote.length == 0">
                         <h4 class="text-center">Please select category to view Leaderboard status.</h4>
                     </div>
@@ -76,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 hidden-xs">
+                <div class="col-md-3 col-md-offset-1 col-sm-offset-0 col-sm-5 hidden-xs">
                     <div class="leader-category">
                         <ul class="list-unstyled text-right">
                             <li ng-repeat="myslide in category track by $index">
@@ -86,6 +91,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
